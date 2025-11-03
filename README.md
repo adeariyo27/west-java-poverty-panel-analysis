@@ -5,7 +5,7 @@
 
 ---
 
-Proyek ini bertujuan untuk menganalisis pengaruh empat komponen Indeks Pembangunan Manusia (IPM) terhadap laju pertumbuhan ekonomi di tingkat provinsi di Indonesia. Analisis ini menggunakan data series waktu dari tahun 2019 hingga 2024.
+Proyek ini merupakan analisis data panel (2021-2024) untuk menguji dampak pengangguran (TPT) dan pendidikan (RLS) terhadap tingkat kemiskinan di 27 kabupaten/kota di Jawa Barat.
 
 ### 📖 **Latar Belakang**
 
@@ -19,7 +19,7 @@ Proyek ini tidak bertujuan untuk membuktikan ulang teori, melainkan untuk menguj
 
 ---
 
-Berdasarkan latar belakang tersebut, tujuan dari penelitian ini adalah:
+Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 1. Menganalisis pengaruh **Tingkat Pengangguran Terbuka (TPT)** secara **parsial** terhadap **Persentase Penduduk Miskin (PPM)** di kabupaten/kota Jawa Barat.
 
@@ -38,37 +38,39 @@ Berdasarkan latar belakang tersebut, tujuan dari penelitian ini adalah:
 </div>
 
 ##### 🔢 *Variabel Prediktor (X)*
-* Umur Harapan Hidup (UHH)
-* Harapan Lama Sekolah (HLS)
+* Tingkat Pengangguran Terbuka (TPT)
 * Rata-Rata Lama Sekolah (RLS)
-* Pengeluaran Per Kapita Disesuaikan
 
 ##### 📈 *Variabel Target (Y)*
-* Laju Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan (persen)
+* Persentase Penduduk Miskin (PPM)
+
+### 📦 **Ruang Lingkup**
+
+---
+
+1. **Cakupan**: Penelitian ini menggunakan **data panel tahunan** yang terdiri dari **27 Kabupaten/Kota di Provinsi Jawa Barat** (sebagai *unit cross-section*) selama periode waktu 2021-2024.
+
+2. **Fokus**: Berfokus pada pemodelan hubungan pengaruh secara langsung antara dua faktor utama (Tingkat Pengangguran Terbuka dan Rata-Rata Lama Sekolah) terhadap Persentase Penduduk Miskin. Analisis mencakup pemilihan model regresi data panel (FEM/REM), pengujian asumsi klasik, dan penerapan koreksi model (*Driscoll-Kraay Standard Errors*) untuk mengukur kekuatan dan arah hubungan.
+
+3. **Batasan**: Penelitian ini tidak mencakup faktor-faktor eksternal lain yang secara teoretis dapat memengaruhi kemiskinan (misalnya, inflasi, Gini Ratio, pertumbuhan PDRB, atau belanja bantuan sosial pemerintah) di luar dua variabel independen yang telah dipilih.
 
 ### 🧭 **Metodologi**
 
 ---
 
-Proyek ini menggunakan dua pendekatan utama:
+#### **1. Persiapan Data**
 
-1. **Persiapan (*Data Wrangling*)**: tahap awal untuk membersihkan, merapikan, dan menyusun data lintas-waktu dan lintas-provinsi agar siap dianalisis. Termasuk penanganan missing value, konsistensi format, serta transformasi variabel bila diperlukan.
+- **Pengumpulan Data**: Mengumpulkan data sekunder data panel (tahunan 2021-2024) dari Badan Pusat Statistik (BPS) Jawa Barat.
 
-2. **Analisis Data Eksploratif**: eksplorasi awal untuk memahami pola, tren, dan distribusi variabel. Visualisasi dan statistik ringkas digunakan untuk mengidentifikasi karakteristik utama serta potensi hubungan antarvariabel.
+- **Cakupan Data**: Data mencakup 3 variabel (`PPM`, `TPT`, `RLS`) untuk 27 Kabupaten/Kota di Jawa Barat (`N=27`, `T=4`, `Total Observasi=108`).
 
-3. **Pemilihan Model (Uji Spesifikasi)**: penentuan model panel yang paling sesuai (misalnya *Fixed Effect* atau *Random Effect*) melalui uji spesifikasi. Tahap ini memastikan model yang dipilih mampu menangkap variasi antar-provinsi dan antar-waktu secara tepat.
+- **Pembersihan & Konsistensi**:
 
-4. **Uji Asumsi Klasik**: pengujian asumsi dasar regresi (seperti normalitas residual, heteroskedastisitas, autokorelasi, dan *cross-sectional dependence*) untuk menjamin validitas hasil estimasi.
+  - Menggunakan `read_csv2` untuk memuat data yang menggunakan pemisah semikolon (;) dan desimal koma (,).
 
-5. **Visualisasi Tren Ternormalisasi (Z-Score)**: pembuatan plot garis ternormalisasi (Z-Score) untuk membandingkan pola pergerakan semua variabel dalam satu grafik secara visual.
+  - Memastikan semua variabel telah diformat sebagai numerik (`<dbl>`) menggunakan `glimpse()`.
 
-6. **Interpretasi Model**: summary model untuk menarik kesimpulan yang berfokus pada:
-
-- *Adjusted R-squared**: seberapa kuat model menjelaskan daya beli.
-
-- **F-statistic p-value**: apakah model signifikan secara simultan.
-
-- **Coefficients (Estimate & p-value)**: variabel X mana yang signifikan secara parsial dan bagaimana arah pengaruhnya (positif/negatif).
+  - Menggabungkan (`merge`) dataset yang terpisah menjadi satu data frame panel akhir yang seimbang (*balanced panel*).
 
 
 ### 👥 **Tim Penyusun**
