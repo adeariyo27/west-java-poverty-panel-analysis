@@ -8,12 +8,17 @@ library(lmtest)
 library(car)          
 library(RColorBrewer) 
 library(sandwich)
+library(ggcorrplot)
+library(ggplot2)
+
 setwd("D:/Magister/Kuliah/Pemrograman Statistika/Project Akhir/data/clean/")
 options(scipen = 999)
 
 df <- read_csv("Data Panel PPM Jabar 2021-2024.csv")
 glimpse(df)
+head(df)
 view(df)
+
 
 # -------------------------------------------------------------------
 # BAGIAN 1: ANALISIS DATA EKSPLORATIF (EDA)
@@ -29,6 +34,20 @@ vars_for_cor <- df %>%
 cor_matrix <- cor(vars_for_cor, use = "complete.obs")
 print("Matriks Korelasi:")
 print(round(cor_matrix, 2))
+
+plot_heatmap <- ggcorrplot(
+  cor_matrix,
+  hc.order = TRUE,
+  type = "lower",
+  lab = TRUE,
+  title = "Heatmap Korelasi Y = Persentase Penduduk Miskin"
+) +
+  theme(
+    axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5)
+  )
+
+print(plot_heatmap)
+
 
 
 # -------------------------------------------------------------------
