@@ -3,7 +3,7 @@
 
 ### 📘 **Pendahuluan**
 
----
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
 
 Proyek ini merupakan analisis data panel (2021-2024) untuk menguji dampak pengangguran (TPT) dan pendidikan (RLS) terhadap tingkat kemiskinan di 27 kabupaten/kota di Jawa Barat.
 
@@ -33,10 +33,12 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 <div align="center">
   <img src="assets/images/bps.png" width="150" align="center">
 </div>
-
+<br>
+<br>
 <div align="center">
-  <table style="margin: 0 auto; text-align: left; width: 80%;">
+  <table style="margin: 0 auto; width: 80%;">
     <tr>
+      <!-- Kolom Variabel X -->
       <td style="vertical-align: top; width: 50%; padding-right: 20px;">
         <h4>🔢 <em>Variabel Prediktor (X)</em></h4>
         <ul>
@@ -44,6 +46,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
           <li>Rata-Rata Lama Sekolah (RLS)</li>
         </ul>
       </td>
+      <!-- Kolom Variabel Y -->
       <td style="vertical-align: top; width: 50%; padding-left: 20px;">
         <h4>📈 <em>Variabel Target (Y)</em></h4>
         <ul>
@@ -53,9 +56,6 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
     </tr>
   </table>
 </div>
-
-
-
 
 ### 📦 **Ruang Lingkup**
 
@@ -82,16 +82,11 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   - Memastikan semua variabel telah diformat sebagai numerik (`<dbl>`) menggunakan `glimpse()`.
   - Menggabungkan (`merge`) dataset yang terpisah menjadi satu data frame panel akhir yang seimbang (*balanced panel*).
   
-<div align="center">
-<figure style="text-align: center;">
-  <img src="assets/images/Gambar 1 - Glimpse Data.png" 
-       alt="Glimpse Data" 
-       style="width: 400px; height: auto;" />
-  <figcaption style="font-size: 14px; font-style: italic; color: rgba(0,0,0,0.7); margin-top: 8px;">
-    Gambar 1. Cuplikan Data
-  </figcaption>
-</figure>
-</div>
+<p align="center">
+  <img src="assets/images/Gambar 1 - Glimpse Data.png" alt="Glimpse Data" width="400">
+  <br>
+  <em>Gambar 1. Cuplikan Data</em>
+</p>
 
   
 #### **2. 🔍 Analisis Data Eksplorasi (EDA)**
