@@ -75,7 +75,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 ---
 
 - **Pengumpulan Data**: Mengumpulkan data sekunder data panel (tahunan 2021-2024) dari Badan Pusat Statistik (BPS) Jawa Barat.
-- **Cakupan Data**: Data mencakup 3 variabel (`PPM`, `TPT`, `RLS`) untuk 27 Kabupaten/Kota di Jawa Barat (`N=27`, `T=4`, `Total Observasi=108`).
+- **Cakupan Data**: Data mencakup 3 variabel (`PPM`, `TPT`, `RLS`) untuk 27 Kabupaten/Kota di Jawa Barat dengan rentang waktu 2021 s.d. 2024 (`N=27`, `T=4`, `Total Observasi=108`).
 - **Pembersihan & Konsistensi**:
 
   - Memastikan semua variabel telah diformat sebagai numerik (`<dbl>`) menggunakan `glimpse()`.
@@ -133,45 +133,53 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 #### **3. 🔧 Pemodelan Regresi Data Panel**
 
+---
+
 - **Formulasi Model**: Memodelkan `PPM` (Y) sebagai fungsi dari `TPT` (X1) dan `RLS` (X2) menggunakan paket `plm` di R.
 
   - Model Utama: PPM ~ TPT + RLS
 
 - **Estimasi Model Awal**: Melakukan estimasi pada tiga model dasar regresi data panel untuk perbandingan:
 
-  1. *Common Effect Model* (Pooled OLS)
+  - *Common Effect Model* (Pooled OLS)
 
-  2. *Fixed Effect Model* (FEM)
+  - *Fixed Effect Model* (FEM)
 
-  3. *Random Effect Model* (REM)
+  - *Random Effect Model* (REM)
   
 #### **4. 🧩 Pemilihan Model & Uji Spesifikasi**
 
+---
+
 - **Pemilihan Model**: Menjalankan serangkaian uji spesifikasi untuk memilih model terbaik:
 
-  1. **Uji Chow (pFtest)**: Memilih antara *Common Effect* vs *Fixed Effect*.
+  - **Uji Chow (pFtest)**: Memilih antara *Common Effect* vs *Fixed Effect*.
 
-  2. **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
+  - **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
 
-  3. **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
+  - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
 
       (Hasil dari uji ini mengarahkan pada pemilihan *Random Effect* Model (REM)).
 
 #### **5. 📐 Validasi Model & Uji Asumsi Klasik** 
 
+---
+
 - **Diagnostik**: Memvalidasi keandalan statistik model `REM` yang terpilih.
 
-  1. **Multikolinearitas**: Menggunakan `vif()` pada model OLS Pooled (VIF < 10).
+  - **Multikolinearitas**: Menggunakan `vif()` pada model OLS Pooled (VIF < 10).
 
-  2. **Normalitas Residual**: Menggunakan `shapiro.test()` (p-value > 0.05).
+  - **Normalitas Residual**: Menggunakan `shapiro.test()` (p-value > 0.05).
 
-  3. **Heteroskedastisitas**: Menggunakan `bptest()` (p-value > 0.05).
+  - **Heteroskedastisitas**: Menggunakan `bptest()` (p-value > 0.05).
 
-  4. **Autokorelasi**: Menggunakan `pdwtest()` (Durbin-Watson panel) (p-value > 0.05).
+  - **Autokorelasi**: Menggunakan `pdwtest()` (Durbin-Watson panel) (p-value > 0.05).
 
-  5. **Cross-Sectional Dependence (CSD)**: Menggunakan `pcdtest()` (Pesaran CD) (p-value > 0.05).
+  - **Cross-Sectional Dependence (CSD)**: Menggunakan `pcdtest()` (Pesaran CD) (p-value > 0.05).
 
-#### **6. 🩺 Remediasi Model (Perbaikan Model) **  
+#### **6. 🩺 Remediasi Model (Perbaikan Model)**  
+
+---
 
 - **Diagnosis**: Hasil dari Uji Asumsi (Langkah 5) menunjukkan adanya pelanggaran asumsi **Autokorelasi** dan **Cross-Sectional Dependence (CSD)** yang signifikan.
 
@@ -181,13 +189,15 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 #### **7. 💡 Interpretasi Model**
 
+---
+
 - **Interpretasi Hasil**: Menganalisis output `summary()` model yang telah dikoreksi (`robust SCC`) untuk menarik kesimpulan.
 
-  1. **R-squared**: Seberapa kuat model menjelaskan variasi `PPM`.
+  - **R-squared**: Seberapa kuat model menjelaskan variasi `PPM`.
 
-  2. **Chisq p-value (dari Robust Wald Test)**: Apakah model signifikan secara simultan.
+  - **Chisq p-value (dari Robust Wald Test)**: Apakah model signifikan secara simultan.
 
-  3. **Coefficients (Estimate & Pr(>|z|))**: Variabel (`TPT` atau `RLS`) mana yang signifikan secara parsial dan bagaimana arah pengaruhnya (positif/negatif).
+  - **Coefficients (Estimate & Pr(>|z|))**: Variabel (`TPT` atau `RLS`) mana yang signifikan secara parsial dan bagaimana arah pengaruhnya (positif/negatif).
 
 ### 👥 **Tim Penyusun**
 
