@@ -35,24 +35,23 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 </div>
 <br>
 <div align="center">
-  <table style="margin: 0 auto; width: 80%;">
-    <tr>
-      <!-- Kolom Variabel X -->
-      <td>
-        <h4>🔢 <em>Variabel Prediktor (X)</em></h4>
-        <ul>
-          <li>Tingkat Pengangguran Terbuka (TPT)</li>
-          <li>Rata-Rata Lama Sekolah (RLS)</li>
-        </ul>
-      </td>
-      <!-- Kolom Variabel Y -->
-      <td>
-        <h4>📈 <em>Variabel Target (Y)</em></h4>
-        <ul>
-          <li>Persentase Penduduk Miskin (PPM)</li>
-        </ul>
-      </td>
-    </tr>
+  <table>
+  <tr>
+    <td valign="top">
+      <h4>🔢 <em>Variabel Prediktor (X)</em></h4>
+      <ul>
+        <li>Tingkat Pengangguran Terbuka (TPT)</li>
+        <li>Rata-Rata Lama Sekolah (RLS)</li>
+      </ul>
+    </td>
+    <td width="50px">&nbsp;</td>
+    <td valign="top">
+      <h4>📈 <em>Variabel Target (Y)</em></h4>
+      <ul>
+        <li>Persentase Penduduk Miskin (PPM)</li>
+      </ul>
+    </td>
+  </tr>
   </table>
 </div>
 
@@ -99,13 +98,13 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 <p align="center">
   <img src="assets/images/Gambar 2 - Heatmap Matriks Korelasi.png" alt="Glimpse Data" width="400">
   <br>
-  <em>Gambar 1. Cuplikan Data</em>
+  <em>Gambar 2. Heatmap Matriks Korelasi</em>
 </p>
 <br>
 <div style="margin-left: 50px;">
   <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
     <p>
-      Berdasarkan matriks korelasi, teridentifikasi sebuah 
+      Berdasarkan hasil dari matriks korelasi, teridentifikasi sebuah 
       <strong>korelasi negatif yang kuat</strong> antara 
       <code>PPM</code> (Kemiskinan) dan <code>RLS</code> (Pendidikan) 
       (<strong>-0.73</strong>), yang mengindikasikan bahwa 
