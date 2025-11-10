@@ -34,10 +34,9 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   <img src="assets/images/bps.png" width="150" align="center">
 </div>
 
-<div style="text-align: center; margin-top: 50px;">
+<center>
   <table style="margin: 0 auto; text-align: left; width: 80%;">
     <tr>
-      <!-- Kolom Variabel X -->
       <td style="vertical-align: top; width: 50%; padding-right: 20px;">
         <h4>🔢 <em>Variabel Prediktor (X)</em></h4>
         <ul>
@@ -45,8 +44,6 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
           <li>Rata-Rata Lama Sekolah (RLS)</li>
         </ul>
       </td>
-
-      <!-- Kolom Variabel Y -->
       <td style="vertical-align: top; width: 50%; padding-left: 20px;">
         <h4>📈 <em>Variabel Target (Y)</em></h4>
         <ul>
@@ -55,7 +52,8 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
       </td>
     </tr>
   </table>
-</div>
+</center>
+
 
 
 
@@ -84,6 +82,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   - Memastikan semua variabel telah diformat sebagai numerik (`<dbl>`) menggunakan `glimpse()`.
   - Menggabungkan (`merge`) dataset yang terpisah menjadi satu data frame panel akhir yang seimbang (*balanced panel*).
   
+<center>
 <figure style="text-align: center;">
   <img src="assets/images/Gambar 1 - Glimpse Data.png" 
        alt="Glimpse Data" 
@@ -92,6 +91,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
     Gambar 1. Cuplikan Data
   </figcaption>
 </figure>
+</center>
 
   
 #### **2. 🔍 Analisis Data Eksplorasi (EDA)**
@@ -102,6 +102,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 - **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
 
+<center>
 <figure style="text-align: center;">
   <img src="assets/images/Gambar 2 - Heatmap Matriks Korelasi.png" 
        alt="Glimpse Data" 
@@ -110,9 +111,10 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
     Gambar 2. Heatmap Matriks Korelasi
   </figcaption>
 </figure>
+</center>
 
 <div style="margin-left: 50px;">
-  <blockquote style="font-size: 14px; color: rgba(0,0,0,0.85);">
+  <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
     <p>
       Berdasarkan matriks korelasi, teridentifikasi sebuah 
       <strong>korelasi negatif yang kuat</strong> antara 
