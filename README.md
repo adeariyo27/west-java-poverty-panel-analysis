@@ -3,7 +3,7 @@
 
 ### 📘 **Pendahuluan**
 
-<div style="height:1px; background-color:#ccc; margin:10px 0;"></div>
+---
 
 Proyek ini merupakan analisis data panel (2021-2024) untuk menguji dampak pengangguran (TPT) dan pendidikan (RLS) terhadap tingkat kemiskinan di 27 kabupaten/kota di Jawa Barat.
 
@@ -38,7 +38,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   <table style="margin: 0 auto; width: 80%;">
     <tr>
       <!-- Kolom Variabel X -->
-      <td style="vertical-align: top;">
+      <td>
         <h4>🔢 <em>Variabel Prediktor (X)</em></h4>
         <ul>
           <li>Tingkat Pengangguran Terbuka (TPT)</li>
@@ -46,7 +46,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
         </ul>
       </td>
       <!-- Kolom Variabel Y -->
-      <td style="vertical-align: top;">
+      <td>
         <h4>📈 <em>Variabel Target (Y)</em></h4>
         <ul>
           <li>Persentase Penduduk Miskin (PPM)</li>
@@ -96,16 +96,11 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 - **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
 
-<div align="center">
-<figure style="text-align: center;">
-  <img src="assets/images/Gambar 2 - Heatmap Matriks Korelasi.png" 
-       alt="Glimpse Data" 
-       style="width: 500px; height: auto;" />
-  <figcaption style="font-size: 14px; font-style: italic; color: rgba(0,0,0,0.7); margin-top: 20px; margin-bottom: 50px;">
-    Gambar 2. Heatmap Matriks Korelasi
-  </figcaption>
-</figure>
-<div align="center">
+<p align="center">
+  <img src="assets/images/Gambar 2 - Heatmap Matriks Korelasi.png" alt="Glimpse Data" width="400">
+  <br>
+  <em>Gambar 1. Cuplikan Data</em>
+</p>
 <br>
 <div style="margin-left: 50px;">
   <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
