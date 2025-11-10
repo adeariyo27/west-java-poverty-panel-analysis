@@ -96,15 +96,15 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 - **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
 
 <p align="center">
-  <img src="assets/images/Gambar 2 - Heatmap Matriks Korelasi.png" alt="Glimpse Data" width="400">
+  <img src="assets/images/Gambar 3 - Heatmap Matriks Korelasi.png" alt="Heatmap Korelasi" width="400">
   <br>
-  <em>Gambar 2. Heatmap Matriks Korelasi</em>
+  <em>Gambar 3. Heatmap Matriks Korelasi</em>
 </p>
 <br>
 <div style="margin-left: 50px;">
   <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
     <p>
-      Berdasarkan hasil dari matriks korelasi, teridentifikasi sebuah 
+      Berdasarkan hasil dari heatmap matriks korelasi, teridentifikasi sebuah 
       <strong>korelasi negatif yang kuat</strong> antara 
       <code>PPM</code> (Kemiskinan) dan <code>RLS</code> (Pendidikan) 
       (<strong>-0.73</strong>), yang mengindikasikan bahwa 
@@ -115,7 +115,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
       Namun, hubungan yang lebih kompleks terlihat pada variabel lain. 
       Ditemukan <strong>korelasi negatif yang sangat lemah (-0.18)</strong> 
       antara <code>PPM</code> dan <code>TPT</code> (Pengangguran), yang kemungkinan 
-      disebabkan oleh fenomena <em>"pekerja miskin"</em> (*working poor*) 
+      disebabkan oleh fenomena "pekerja miskin" (<em>working poor</em>) 
       yang <strong>tidak terhitung sebagai penganggur (TPT) namun tetap miskin</strong>.
     </p>
     <p>
@@ -141,10 +141,38 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 - **Estimasi Model Awal**: Melakukan estimasi pada tiga model dasar regresi data panel untuk perbandingan:
 
   - *Common Effect Model* (Pooled OLS)
-
   - *Fixed Effect Model* (FEM)
-
   - *Random Effect Model* (REM)
+
+<p align="center">
+  <img src="assets/images/Gambar 4.1 - Summary Common Model.png" alt="Summary Common Model" width="400">
+<br>
+  <em>Gambar 4.1. Summary Common Model</em>
+</p>
+<br>
+<p align="center">
+  <img src="assets/images/Gambar 4.2 - Summary Fixed Model.png" alt="Summary Fixed Model" width="400">
+<br>
+  <em>Gambar 4.2. Summary Fixed Model</em>
+</p>
+<br>
+<p align="center">
+  <img src="assets/images/Gambar 4.3 - Summary Random Model.png" alt="Summary Random Model" width="400">
+<br>
+  <em>Gambar 4.3. Summary Random Model</em>
+</p>
+<br>  
+
+<div style="margin-left: 50px;">
+<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+<p>
+Berdasarkan hasil estimasi, ketiga model (<code>Pooled OLS</code>, <code>Fixed Effect</code>, dan <code>Random Effect</code>) ditemukan <strong>signifikan secara keseluruhan</strong>, yang ditunjukkan oleh nilai p-value F-statistik atau Chisq yang <strong>sangat kecil</strong> (<code>< 0.000...222</code>). Model <code>Pooled OLS</code> (<strong>R-sq: 0.54</strong>) mengindikasikan bahwa <code>RLS</code> (Rata-Rata Lama Sekolah) memiliki pengaruh negatif dan sangat signifikan terhadap kemiskinan. Namun, dalam model ini, variabel <code>TPT</code> (Tingkat Pengangguran Terbuka) ditemukan <strong>tidak signifikan</strong> secara statistik (<strong>p-value = 0.4608</strong>).
+</p>
+<p>
+Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <code>Fixed Effect</code> (<strong>R-sq: 0.64</strong>) maupun model <code>Random Effect</code> (<strong>R-sq: 0.61</strong>), kedua variabel independen (<code>TPT</code> dan <code>RLS</code>) ditemukan memiliki pengaruh yang <strong>sangat signifikan</strong> terhadap kemiskinan. Sesuai dengan teori, koefisien <code>TPT</code> teridentifikasi <strong>positif (menaikkan kemiskinan)</strong> dan koefisien <code>RLS</code> teridentifikasi <strong>negatif (menurunkan kemiskinan)</strong> pada kedua model panel tersebut. Perbedaan signifikansi <code>TPT</code> antara model <code>Pooled OLS</code> dan model panel ini menegaskan <strong>pentingnya memperhitungkan efek individu</strong> (heterogenitas) antar wilayah.
+</p>
+</blockquote>
+</div>
   
 #### **4. 🧩 Pemilihan Model & Uji Spesifikasi**
 

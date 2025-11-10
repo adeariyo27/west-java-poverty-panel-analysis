@@ -73,9 +73,9 @@ random <- plm(PPM ~ TPT + RLS,
               model = "random")
 
 
-summary(random)
-summary(fixed)
 summary(common)
+summary(fixed)
+summary(random)
 
 
 # -------------------------------------------------------------------
