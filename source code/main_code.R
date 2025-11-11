@@ -88,6 +88,7 @@ print("--- Uji Chow (Fixed vs Common) ---")
 print(pFtest(fixed, common))
 
 # 3.2 Uji Lagrange Multipliers
+print("--- Uji Chow (Random vs Common) ---")
 random <- plm(PPM~TPT+RLS,data=df,index=c("Wilayah","Tahun"),model="random")
 plmtest(random,effect="individual",type="bp")
 

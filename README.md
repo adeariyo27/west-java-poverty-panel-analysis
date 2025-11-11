@@ -187,6 +187,36 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
   - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
 
       (Hasil dari uji ini mengarahkan pada pemilihan *Random Effect* Model (REM)).
+      
+<p align="center">
+  <img src="assets/images/Gambar 5.1 - Uji Chow.png" alt="Uji Chow" width="400">
+<br>
+  <em>Gambar 5.1. Hasil Uji Chow (pFtest)</em>
+</p>
+<br>  
+<p align="center">
+  <img src="assets/images/Gambar 5.2 - Uji Lagrange Multipliers.png" alt="Uji Lagrange Multipliers" width="400">
+<br>
+  <em>Gambar 5.2. Hasil Uji Lagrange Multipliers</em>
+</p>
+<br>  
+<p align="center">
+  <img src="assets/images/Gambar 5.3 - Uji Hausman.png" alt="Uji Hausman" width="400">
+<br>
+  <em>Gambar 5.3. Hasil Uji Hausman</em>
+</p>
+<br>  
+
+<div style="margin-left: 50px;">
+<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+ <p>
+Berdasarkan hasil <code>Uji Chow</code> dan <code>Uji Lagrange Multiplier (Breusch-Pagan)</code>, nilai p-value yang <strong>sangat kecil</strong> (keduanya <strong>< 0.05</strong>) diperoleh. Oleh karena itu, <strong>H0 (yang menyatakan Common Effect Model/Pooled OLS adalah model yang tepat) ditolak</strong> pada kedua pengujian. Ini mengindikasikan bahwa terdapat <strong>efek individu yang signifikan</strong> dalam data, sehingga model <code>Pooled OLS</code> <strong>tidak cocok</strong> untuk digunakan.
+</p>
+<p>
+Selanjutnya, <code>Uji Hausman</code> dilakukan untuk menentukan model yang paling tepat antara <code>Fixed Effect</code> dan <code>Random Effect</code>. Dari <code>Uji Hausman</code>, diperoleh nilai p-value sebesar <strong>0.6014</strong>. Karena nilai p-value ini (<strong>0.6014</strong>) jauh <strong>lebih besar dari 0.05</strong>, maka <strong>H0 (yang menyatakan Random Effect Model adalah model yang konsisten dan efisien) Gagal Ditolak</strong>. Dengan demikian, kesimpulan dari rangkaian uji ini adalah <strong>Random Effect Model (REM)</strong> merupakan <strong>model terbaik</strong> yang terpilih untuk analisis ini.
+</p>
+</blockquote>
+</div>
 
 #### **5. 📐 Validasi Model & Uji Asumsi Klasik** 
 
