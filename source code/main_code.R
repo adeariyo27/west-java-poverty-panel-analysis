@@ -111,7 +111,7 @@ print(vif_results)
 print("--- Uji Normalitas (Shapiro-Wilk) ---")
 print(shapiro.test(residuals(random)))
 
-# 4.3 Uji Homokedastisitas (Breusch-Pagan)
+# 4.3 Uji Homoskedastisitas (Breusch-Pagan)
 print("--- Uji Heteroskedastisitas (Breusch-Pagan) ---")
 print(lmtest::bptest(random))
 

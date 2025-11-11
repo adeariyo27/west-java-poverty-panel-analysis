@@ -225,6 +225,13 @@ Selanjutnya, <code>Uji Hausman</code> dilakukan untuk menentukan model yang pali
 - **Diagnostik**: Memvalidasi keandalan statistik model `REM` yang terpilih.
 
   - **Multikolinearitas**: Menggunakan `vif()` pada model OLS Pooled (VIF < 10).
+  
+    <div align="center">
+      <img src="assets/images/Gambar 6.1 - Multikolinearitas.png" alt="Multikolinearitas" width="200">
+    <br>
+      <em>Gambar 6.1. - Pengecekan Multikolinearitas</em>
+    </div>
+    <br> 
 
   - **Normalitas Residual**: Menggunakan `shapiro.test()` (p-value > 0.05).
 
