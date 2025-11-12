@@ -81,12 +81,13 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   - Menggabungkan (`merge`) dataset yang terpisah menjadi satu data frame panel akhir yang seimbang (*balanced panel*).
   
 <p align="center">
-  <img src="assets/images/Gambar 1 - Glimpse Data.png" alt="Glimpse Data" width="800">
+  <img src="assets/images/Gambar 1 - Glimpse Data.png" alt="Glimpse Data" width="720">
   <br>
   <em>Gambar 1. Cuplikan Data</em>
 </p>
 <br>
 
+<p align="center">
 | No  | Wilayah       | Tahun |   TPT |   RLS |   PPM |
 |:---:|:--------------|------:|------:|------:|------:|
 |  1  | Bandung       |  2024 |  6.36 |  9.15 |  6.19 |
@@ -102,8 +103,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 | 106 | Tasikmalaya   |  2023 |  3.89 |  7.96 | 10.28 |
 | 107 | Tasikmalaya   |  2022 |  4.17 |  7.73 | 10.73 |
 | 108 | Tasikmalaya   |  2021 |  6.16 |  7.48 | 11.15 |
-
-
+</p>
 
 
   
