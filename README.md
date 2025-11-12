@@ -220,7 +220,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   <em>Gambar 3. Heatmap Matriks Korelasi</em>
 </p>
 <br>
-<div style="margin-left: 50px;">
+<div style="margin-left: 40px;">
   <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
     <p>
       Berdasarkan hasil dari heatmap matriks korelasi, teridentifikasi sebuah 
@@ -282,7 +282,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   <br> 
 
 
-<div style="margin-left: 50px;">
+<div style="margin-left: 70px;">
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
 Berdasarkan hasil estimasi, ketiga model (<code>Pooled OLS</code>, <code>Fixed Effect</code>, dan <code>Random Effect</code>) ditemukan <strong>signifikan secara keseluruhan</strong>, yang ditunjukkan oleh nilai p-value F-statistik atau Chisq yang <strong>sangat kecil</strong> (<code>< 0.000...222</code>). Model <code>Pooled OLS</code> (<strong>R-sq: 0.54</strong>) mengindikasikan bahwa <code>RLS</code> (Rata-Rata Lama Sekolah) memiliki pengaruh negatif dan sangat signifikan terhadap kemiskinan. Namun, dalam model ini, variabel <code>TPT</code> (Tingkat Pengangguran Terbuka) ditemukan <strong>tidak signifikan</strong> secara statistik (<strong>p-value = 0.4608</strong>).
@@ -306,13 +306,15 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
     <em>Gambar 5.1. Hasil Uji Chow (pFtest)</em>
   </div>
   <br>  
+  
   - **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
   <div align="center">
     <img src="assets/images/Gambar 5.2 - Uji Lagrange Multipliers.png" alt="Uji Lagrange   Multipliers" width="400">
   <br>
     <em>Gambar 5.2. Hasil Uji Lagrange Multipliers</em>
   </div>
-  <br>  
+  <br> 
+  
   - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
   <div align="center">
     <img src="assets/images/Gambar 5.3 - Uji Hausman.png" alt="Uji Hausman" width="400">
@@ -323,7 +325,7 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
       (Hasil dari uji ini mengarahkan pada pemilihan *Random Effect* Model (REM)).
       
 
-<div style="margin-left: 50px;">
+<div style="margin-left: 70px;">
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
  <p>
 Berdasarkan hasil <code>Uji Chow</code> dan <code>Uji Lagrange Multiplier (Breusch-Pagan)</code>, nilai p-value yang <strong>sangat kecil</strong> (keduanya <strong>< 0.05</strong>) diperoleh. Oleh karena itu, <strong>H0 (yang menyatakan Common Effect Model/Pooled OLS adalah model yang tepat) ditolak</strong> pada kedua pengujian. Ini mengindikasikan bahwa terdapat <strong>efek individu yang signifikan</strong> dalam data, sehingga model <code>Pooled OLS</code> <strong>tidak cocok</strong> untuk digunakan.
@@ -376,7 +378,7 @@ Selanjutnya, <code>Uji Hausman</code> dilakukan untuk menentukan model yang pali
     | Z      | 5.7725 |
     | p-value      | 0.000000007812 |
  
-<div style="margin-left: 50px;">   
+<div style="margin-left: 70px;">   
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
 Berikut adalah interpretasi ringkas dari hasil uji asumsi klasik yang disajikan:
@@ -410,7 +412,15 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
 
 ---
 
-- **Diagnosis**: Hasil dari Uji Asumsi (Langkah 5) menunjukkan adanya pelanggaran asumsi **Autokorelasi** dan **Cross-Sectional Dependence (CSD)** yang signifikan.
+- **Diagnosis**: Hasil dari Uji Asumsi (Langkah 5) menunjukkan adanya pelanggaran asumsi **Normalitas**, **Autokorelasi** dan **Cross-Sectional Dependence (CSD)** yang signifikan.
+
+<div style="margin-left: 40px;">
+<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+<p>
+Sementara kegagalan <strong>Uji Normalitas</strong> dapat dianggap sebagai pelanggaran ringan (dan bisa diabaikan berkat <strong>Central Limit Theorem/CLT</strong> karena N=108), masalah terbesarnya adalah kegagalan <strong>Uji CSD (Pesaran CD)</strong>. Gagalnya uji ini (<code>p-value</code> sangat kecil) membuktikan adanya <strong>"efek tular" (spillover)</strong> yang nyata antar kabupaten/kota. Artinya, apa yang terjadi di satu wilayah (misal: kebijakan di <strong>Kota Bandung</strong>) terbukti secara statistik turut memengaruhi wilayah tetangganya (misal: <strong>Kabupaten Bandung</strong> atau <strong>Kota Cimahi</strong>).
+</p>
+</blockquote>
+</div>
 
 - **Solusi**: Untuk mengatasi pelanggaran asumsi ganda tersebut, model `REM` standar tidak dapat digunakan. Solusi yang diterapkan adalah menggunakan **Driscoll-Kraay Standard Errors (SCC)**.
 
