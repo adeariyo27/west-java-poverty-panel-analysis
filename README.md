@@ -221,7 +221,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 </p>
 <br>
 <div style="margin-left: 50px;">
-  <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+&nbsp;&nbsp;&nbsp;  <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
     <p>
       Berdasarkan hasil dari heatmap matriks korelasi, teridentifikasi sebuah 
       <strong>korelasi negatif yang kuat</strong> antara 
