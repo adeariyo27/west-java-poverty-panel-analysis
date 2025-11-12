@@ -141,27 +141,27 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 - **Estimasi Model Awal**: Melakukan estimasi pada tiga model dasar regresi data panel untuk perbandingan:
 
   - *Common Effect Model* (Pooled OLS)
+  <div align="center">
+    <img src="assets/images/Gambar 4.1 - Summary Common Model.png" alt="Summary Common   Model" width="400">
+  <br>
+    <em>Gambar 4.1. Summary Common Model</em>
+  </div>
+  <br>
   - *Fixed Effect Model* (FEM)
+  <div align="center">
+    <img src="assets/images/Gambar 4.2 - Summary Fixed Model.png" alt="Summary Fixed   Model" width="400">
+  <br>
+    <em>Gambar 4.2. Summary Fixed Model</em>
+  </div>
+  <br>
   - *Random Effect Model* (REM)
+  <div align="center">
+    <img src="assets/images/Gambar 4.3 - Summary Random Model.png" alt="Summary Random   Model" width="400">
+  <br>
+    <em>Gambar 4.3. Summary Random Model</em>
+  </div>
+  <br> 
 
-<p align="center">
-  <img src="assets/images/Gambar 4.1 - Summary Common Model.png" alt="Summary Common Model" width="400">
-<br>
-  <em>Gambar 4.1. Summary Common Model</em>
-</p>
-<br>
-<p align="center">
-  <img src="assets/images/Gambar 4.2 - Summary Fixed Model.png" alt="Summary Fixed Model" width="400">
-<br>
-  <em>Gambar 4.2. Summary Fixed Model</em>
-</p>
-<br>
-<p align="center">
-  <img src="assets/images/Gambar 4.3 - Summary Random Model.png" alt="Summary Random Model" width="400">
-<br>
-  <em>Gambar 4.3. Summary Random Model</em>
-</p>
-<br>  
 
 <div style="margin-left: 50px;">
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
@@ -181,31 +181,28 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 - **Pemilihan Model**: Menjalankan serangkaian uji spesifikasi untuk memilih model terbaik:
 
   - **Uji Chow (pFtest)**: Memilih antara *Common Effect* vs *Fixed Effect*.
-
+  <div align="center">
+    <img src="assets/images/Gambar 5.1 - Uji Chow.png" alt="Uji Chow" width="400">
+  <br>
+    <em>Gambar 5.1. Hasil Uji Chow (pFtest)</em>
+  </div>
+  <br>  
   - **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
-
+  <div align="center">
+    <img src="assets/images/Gambar 5.2 - Uji Lagrange Multipliers.png" alt="Uji Lagrange   Multipliers" width="400">
+  <br>
+    <em>Gambar 5.2. Hasil Uji Lagrange Multipliers</em>
+  </div>
+  <br>  
   - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
-
+  <div align="center">
+    <img src="assets/images/Gambar 5.3 - Uji Hausman.png" alt="Uji Hausman" width="400">
+  <br>
+    <em>Gambar 5.3. Hasil Uji Hausman</em>
+  </div>
+  <br> 
       (Hasil dari uji ini mengarahkan pada pemilihan *Random Effect* Model (REM)).
       
-<p align="center">
-  <img src="assets/images/Gambar 5.1 - Uji Chow.png" alt="Uji Chow" width="400">
-<br>
-  <em>Gambar 5.1. Hasil Uji Chow (pFtest)</em>
-</p>
-<br>  
-<p align="center">
-  <img src="assets/images/Gambar 5.2 - Uji Lagrange Multipliers.png" alt="Uji Lagrange Multipliers" width="400">
-<br>
-  <em>Gambar 5.2. Hasil Uji Lagrange Multipliers</em>
-</p>
-<br>  
-<p align="center">
-  <img src="assets/images/Gambar 5.3 - Uji Hausman.png" alt="Uji Hausman" width="400">
-<br>
-  <em>Gambar 5.3. Hasil Uji Hausman</em>
-</p>
-<br>  
 
 <div style="margin-left: 50px;">
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
@@ -225,21 +222,70 @@ Selanjutnya, <code>Uji Hausman</code> dilakukan untuk menentukan model yang pali
 - **Diagnostik**: Memvalidasi keandalan statistik model `REM` yang terpilih.
 
   - **Multikolinearitas**: Menggunakan `vif()` pada model OLS Pooled (VIF < 10).
-  
-    <div align="center">
-      <img src="assets/images/Gambar 6.1 - Multikolinearitas.png" alt="Multikolinearitas" width="200">
-    <br>
-      <em>Gambar 6.1. - Pengecekan Multikolinearitas</em>
-    </div>
-    <br> 
+    
+    | Variabel | Nilai    |
+    |----------|----------:|
+    | TPT      | 1.107534 |
+    | RLS      | 1.107534 |
 
   - **Normalitas Residual**: Menggunakan `shapiro.test()` (p-value > 0.05).
+  
+    | Statistik   | Nilai    |
+    |---------- |----------:|
+    | W       | 0.9361 |
+    | p-value       | 0.00005941 |
 
   - **Heteroskedastisitas**: Menggunakan `bptest()` (p-value > 0.05).
+    
+    | Statistik | Nilai     |
+    |-----------|-----------:|
+    | BP        | 0.52038   |
+    | df        | 2         |
+    | p-value   | 0.7709    |
 
   - **Autokorelasi**: Menggunakan `pdwtest()` (Durbin-Watson panel) (p-value > 0.05).
 
+    | Statistik | Nilai    |
+    |----------|----------:|
+    | DW      | 1.518 |
+    | p-value      | 0.005124 |
+
   - **Cross-Sectional Dependence (CSD)**: Menggunakan `pcdtest()` (Pesaran CD) (p-value > 0.05).
+  
+    | Statistik | Nilai    |
+    |----------|----------:|
+    | Z      | 5.7725 |
+    | p-value      | 0.000000007812 |
+ 
+<div style="margin-left: 50px;">   
+<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+<p>
+Berikut adalah interpretasi ringkas dari hasil uji asumsi klasik yang disajikan:
+</p>
+<ul>
+  <li style="margin-bottom: 10px;">
+<strong>Uji Multikolinearitas (VIF)</strong><br>
+Nilai VIF (Variance Inflation Factor) untuk kedua variabel independen (<code>TPT</code> dan <code>RLS</code>) tercatat sebesar <strong>1.107534</strong>. Karena nilai ini <strong>jauh di bawah ambang batas umum (5 atau 10)</strong>, dapat disimpulkan bahwa <strong>tidak terdeteksi adanya masalah multikolinearitas</strong> antar variabel independen dalam model.
+  </li>
+  <li style="margin-bottom: 10px;">
+<strong>Uji Normalitas (Shapiro-Wilk)</strong><br>
+Diperoleh nilai p-value sebesar <strong>0.00005941</strong>, yang jauh <strong>lebih kecil dari tingkat signifikansi 0.05</strong>. Oleh karena itu, <strong>H0 (residual terdistribusi normal) ditolak</strong>. Ini mengindikasikan bahwa <strong>asumsi normalitas residual telah dilanggar</strong>.
+  </li>
+  <li style="margin-bottom: 10px;">
+<strong>Uji Homokedastisitas (Breusch-Pagan)</strong><br>
+Nilai p-value yang dihasilkan adalah <strong>0.7709</strong>. Karena nilai ini secara signifikan <strong>lebih besar dari 0.05</strong>, maka <strong>H0 (terdapat homoskedastisitas atau varians error konstan) gagal ditolak</strong>. Dapat disimpulkan bahwa <strong>tidak ditemukan adanya masalah heteroskedastisitas</strong> dalam model.
+  </li>
+  <li style="margin-bottom: 10px;">
+<strong>Uji Autokorelasi (Durbin-Watson)</strong><br>
+Dari hasil <code>pdwtest</code>, didapatkan p-value sebesar <strong>0.005124</strong>, yang <strong>lebih kecil dari 0.05</strong>. Dengan demikian, <strong>H0 (tidak ada autokorelasi serial) ditolak</strong>. Ini menunjukkan bahwa telah <strong>terdeteksi adanya masalah autokorelasi serial</strong> dalam model.
+  </li>
+  <li style="margin-bottom: 10px;">
+<strong>Uji Cross-sectional Dependence (Pesaran CD)</strong><br>
+Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <strong>sangat kecil</strong> (<strong>0.000000007812</strong>), yang secara signifikan <strong>lebih rendah dari 0.05</strong>. Oleh karena itu, <strong><code>H0</code> (tidak ada cross-sectional dependence) ditolak</strong>. Ini mengindikasikan bahwa telah <strong>terdeteksi adanya masalah ketergantungan lintas-seksi (cross-sectional dependence)</strong> yang signifikan dalam data panel. Artinya, terdapat <strong>"efek tular" (spillover)</strong> atau korelasi antar galat (error) dari satu kabupaten/kota ke kabupaten/kota lainnya.
+  </li>
+</ul>
+</blockquote>
+</div>
 
 #### **6. 🩺 Remediasi Model (Perbaikan Model)**  
 
