@@ -17,6 +17,7 @@ options(scipen = 999)
 df <- read_csv("Data Panel PPM Jabar 2021-2024.csv")
 glimpse(df)
 head(df)
+tail(df)
 view(df)
 
 

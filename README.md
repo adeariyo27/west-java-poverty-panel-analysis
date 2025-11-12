@@ -81,32 +81,131 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   - Menggabungkan (`merge`) dataset yang terpisah menjadi satu data frame panel akhir yang seimbang (*balanced panel*).
   
 <p align="center">
-  <img src="assets/images/Gambar 1 - Glimpse Data.png" alt="Glimpse Data" width="720">
+  <img src="assets/images/Gambar 1 - Glimpse Data.png" alt="Glimpse Data" width="700">
   <br>
   <em>Gambar 1. Cuplikan Data</em>
 </p>
 <br>
 
-<p align="center">
-| No  | Wilayah       | Tahun |   TPT |   RLS |   PPM |
-|:---:|:--------------|------:|------:|------:|------:|
-|  1  | Bandung       |  2024 |  6.36 |  9.15 |  6.19 |
-|  2  | Bandung       |  2023 |  6.52 |  9.10 |  6.40 |
-|  3  | Bandung       |  2022 |  6.98 |  9.08 |  6.80 |
-|  4  | Bandung       |  2021 |  8.32 |  9.07 |  7.15 |
-|  5  | Bandung Barat |  2024 |  6.70 |  8.24 | 10.50 |
-|  6  | Bandung Barat |  2023 |  8.11 |  8.23 | 10.52 |
-| ... | ............. |  .... |  .... |  .... | ..... |
-| 103 | Sumedang      |  2022 |  7.72 |  8.72 | 10.14 |
-| 104 | Sumedang      |  2021 |  9.18 |  8.52 | 10.71 |
-| 105 | Tasikmalaya   |  2024 |  3.74 |  7.97 | 10.23 |
-| 106 | Tasikmalaya   |  2023 |  3.89 |  7.96 | 10.28 |
-| 107 | Tasikmalaya   |  2022 |  4.17 |  7.73 | 10.73 |
-| 108 | Tasikmalaya   |  2021 |  6.16 |  7.48 | 11.15 |
-</p>
+<div align="center">
 
+<table style="border-collapse: collapse; width: 80%;">
+  <tr>
+    <th style="width: 5%;">No</th>
+    <th style="width: 20%;">Wilayah</th>
+    <th style="width: 10%;">Tahun</th>
+    <th style="width: 10%;">TPT</th>
+    <th style="width: 10%;">RLS</th>
+    <th style="width: 10%;">PPM</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Bandung</td>
+    <td>2024</td>
+    <td>6.36</td>
+    <td>9.15</td>
+    <td>6.19</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Bandung</td>
+    <td>2023</td>
+    <td>6.52</td>
+    <td>9.10</td>
+    <td>6.40</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Bandung</td>
+    <td>2022</td>
+    <td>6.98</td>
+    <td>9.08</td>
+    <td>6.80</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Bandung</td>
+    <td>2021</td>
+    <td>8.32</td>
+    <td>9.07</td>
+    <td>7.15</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Bandung Barat</td>
+    <td>2024</td>
+    <td>6.70</td>
+    <td>8.24</td>
+    <td>10.50</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Bandung Barat</td>
+    <td>2023</td>
+    <td>8.11</td>
+    <td>8.23</td>
+    <td>10.52</td>
+  </tr>
+  <tr>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+    <tr>
+    <td>103</td>
+    <td>Sumedang</td>
+    <td>2022</td>
+    <td>7.72</td>
+    <td>8.72</td>
+    <td>10.14</td>
+  </tr>
+  <tr>
+    <td>104</td>
+    <td>Sumedang</td>
+    <td>2021</td>
+    <td>9.18</td>
+    <td>8.52</td>
+    <td>10.71</td>
+  </tr>
+  <tr>
+    <td>105</td>
+    <td>Tasikmalaya</td>
+    <td>2024</td>
+    <td>3.74</td>
+    <td>7.97</td>
+    <td>10.23</td>
+  </tr>
+  <tr>
+    <td>106</td>
+    <td>Tasikmalaya</td>
+    <td>2023</td>
+    <td>3.89</td>
+    <td>7.96</td>
+    <td>10.28</td>
+  </tr>
+  <tr>
+    <td>107</td>
+    <td>Tasikmalaya</td>
+    <td>2022</td>
+    <td>4.17</td>
+    <td>7.73</td>
+    <td>10.73</td>
+  </tr>
+  <tr>
+    <td>108</td>
+    <td>Tasikmalaya</td>
+    <td>2021</td>
+    <td>6.16</td>
+    <td>7.48</td>
+    <td>11.15</td>
+  </tr>
+</table>
 
-  
+</div>
+
 #### **2. 🔍 Analisis Data Eksplorasi (EDA)**
 
 ---
