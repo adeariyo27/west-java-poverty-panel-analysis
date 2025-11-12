@@ -266,6 +266,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
     <em>Gambar 4.1. Summary Common Model</em>
   </div>
   <br>
+  
   - *Fixed Effect Model* (FEM)
   <div align="center">
     <img src="assets/images/Gambar 4.2 - Summary Fixed Model.png" alt="Summary Fixed   Model" width="400">
@@ -273,6 +274,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
     <em>Gambar 4.2. Summary Fixed Model</em>
   </div>
   <br>
+  
   - *Random Effect Model* (REM)
   <div align="center">
     <img src="assets/images/Gambar 4.3 - Summary Random Model.png" alt="Summary Random   Model" width="400">
@@ -322,6 +324,12 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
     <em>Gambar 5.3. Hasil Uji Hausman</em>
   </div>
   <br> 
+  
+    | Uji                         | Statistik | df1 | df2 | Nilai    | p-value              |
+  |------------------------------|-----------|-----|-----|----------|----------------------|
+  | F test (Individual Effects) | F         | 26  | 79  | 168.53   | < 0.00000000000000022 |
+  | LM Test (Breusch-Pagan)     | Chi-sq    | 1   | -   | 152.53   | < 0.00000000000000022 |
+  | Hausman Test                | Chi-sq    | 2   | -   | 1.0169   | 0.6014               |
       (Hasil dari uji ini mengarahkan pada pemilihan *Random Effect* Model (REM)).
       
 
@@ -417,12 +425,29 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
 <div style="margin-left: 40px;">
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
-Sementara kegagalan <strong>Uji Normalitas</strong> dapat dianggap sebagai pelanggaran ringan (dan bisa diabaikan berkat <strong>Central Limit Theorem/CLT</strong> karena N=108), masalah terbesarnya adalah kegagalan <strong>Uji CSD (Pesaran CD)</strong>. Gagalnya uji ini (<code>p-value</code> sangat kecil) membuktikan adanya <strong>"efek tular" (spillover)</strong> yang nyata antar kabupaten/kota. Artinya, apa yang terjadi di satu wilayah (misal: kebijakan di <strong>Kota Bandung</strong>) terbukti secara statistik turut memengaruhi wilayah tetangganya (misal: <strong>Kabupaten Bandung</strong> atau <strong>Kota Cimahi</strong>).
-</p>
+<ul style="list-style-type: decimal; margin-left: 20px;">
+  <li style="margin-bottom: 10px;">
+<strong>Gagal Uji Normalitas (Pelanggaran Ringan)</strong>: Pelanggaran asumsi ini dianggap ringan karena jumlah observasi yang besar (<code>N*T = 108</code>). Berkat <strong>Central Limit Theorem (CLT)</strong>, estimasi koefisien tetap dapat diandalkan.
+  </li>
+  <li style="margin-bottom: 10px;">
+<strong>Gagal Uji Autokorelasi (Pelanggaran Serius)</strong>: Ini membuktikan adanya <strong>"efek kelembaman" (<em>persistence</em>)</strong>, di mana galat (<em>error</em>) dari tahun sebelumnya "bocor" dan memengaruhi galat di tahun berikutnya (misal: kemiskinan tahun 2021 memengaruhi 2022).
+  </li>
+  <li style="margin-bottom: 10px;">
+<strong>Gagal Uji CSD (Pelanggaran Serius)</strong>: Ini adalah masalah terbesar. Gagalnya <strong>Uji Pesaran CD</strong> membuktikan adanya <strong>"efek tular" (<em>spillover</em>)</strong> antar kabupaten/kota, di mana kebijakan di <strong>Kota Bandung</strong> terbukti memengaruhi <strong>Kabupaten Bandung</strong>.
+  </li>
+</ul>
 </blockquote>
 </div>
 
 - **Solusi**: Untuk mengatasi pelanggaran asumsi ganda tersebut, model `REM` standar tidak dapat digunakan. Solusi yang diterapkan adalah menggunakan **Driscoll-Kraay Standard Errors (SCC)**.
+
+<div style="margin-left: 40px;">
+<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+<p>
+<strong>Driscoll-Kraay (SCC)</strong> adalah salah satu jenis <strong>Robust Standard Error</strong> yang paling kuat, yang dirancang khusus untuk data panel makro seperti dalam <strong>studi kasus ini</strong>. Relevansinya sangat tinggi karena data 27 kabupaten/kota di Jawa Barat terbukti menderita "penyakit ganda" yang serius, yaitu <strong>Autokorelasi</strong> (efek kelembaman waktu) dan <strong>Cross-Sectional Dependence (CSD)</strong> (efek tular antar wilayah). Metode SCC ini bekerja dengan "mengobati" <em>Standard Error</em> dan <em>p-value</em> model agar tetap <strong>valid dan dapat dipercaya (<em>robust</em>)</strong>, bahkan ketika <strong>kedua pelanggaran asumsi yang parah</strong> tersebut terjadi secara bersamaan, tidak seperti metode <em>robust</em> standar yang hanya mengobati satu penyakit.
+</p>
+</blockquote>
+</div>
 
 - **Penerapan**: Menghitung ulang *Standard Error* dan p-value model REM dengan memanggil `summary(random, vcov = vcovSCC(random))`. Metode ini menghasilkan estimasi koefisien yang *robust* (kebal) terhadap autokorelasi dan CSD.
 
@@ -437,6 +462,24 @@ Sementara kegagalan <strong>Uji Normalitas</strong> dapat dianggap sebagai pelan
   - **Chisq p-value (dari Robust Wald Test)**: Apakah model signifikan secara simultan.
 
   - **Coefficients (Estimate & Pr(>|z|))**: Variabel (`TPT` atau `RLS`) mana yang signifikan secara parsial dan bagaimana arah pengaruhnya (positif/negatif).
+
+<div style="margin-left: 70px;">  
+<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
+<p>
+Berdasarkan hasil <code>summary()</code> model <code>Random Effect</code> yang telah dikoreksi menggunakan <strong>Driscoll-Kraay (SCC) Standard Errors</strong>, model tersebut ditemukan <strong>sangat signifikan secara statistik</strong>. Penggunaan koreksi SCC ini, yang dicatat dalam <em>output</em> (<code>vcovSCC(random)</code>), telah menghasilkan <em>Standard Error</em> dan <code>p-value</code> yang <strong><em>robust</em></strong> terhadap masalah <strong>autokorelasi</strong> dan <strong>cross-sectional dependence</strong>. Kelayakan model secara keseluruhan dikonfirmasi oleh nilai <code>Chisq</code> (<strong>51719.7</strong>) dengan <code>p-value</code> yang <strong>sangat kecil</strong> (<strong>< 0.000...222</strong>), yang mengindikasikan bahwa model ini <strong>valid secara statistik</strong>. Selain itu, nilai <code>Adjusted R-Squared</code> sebesar <strong>0.61218</strong> menunjukkan bahwa sekitar <strong>61.9%</strong> variasi dari Persentase Penduduk Miskin (<code>PPM</code>) <strong>dapat dijelaskan</strong> oleh model ini.
+</p>
+<p>
+Saat dianalisis secara individual, kedua variabel independen ditemukan memiliki pengaruh yang <strong>sangat signifikan</strong>. Variabel <code>TPT</code> (Tingkat Pengangguran Terbuka) teridentifikasi memiliki <strong>koefisien positif</strong> (<strong>0.166834</strong>) dan <strong>sangat signifikan</strong> (<strong>< 0.000...1427</strong>), yang menunjukkan adanya <strong>hubungan positif dengan kemiskinan</strong>. Demikian pula, variabel <code>RLS</code> (Rata-Rata Lama Sekolah) ditemukan memiliki <strong>koefisien negatif</strong> (<strong>-1.364553</strong>) dan juga <strong>sangat signifikan</strong> (<strong>< 0.000...22</strong>), yang mengindikasikan bahwa <strong>kenaikan tingkat pendidikan</strong> sangat erat kaitannya dengan <strong>penurunan tingkat kemiskinan</strong>.
+</p>
+</blockquote>
+</div>
+
+<div align="center">
+  <img src="assets/images/Gambar 6 - Perbandingan Pola Pergerakan Variabel (Z-Score).png" alt="Z-Score" width="600">
+<br>
+  <em>Gambar 6. Perbandingan Pola Pergerakan Variabel (Z-Score)</em>
+</div>
+<br>
 
 ### 👥 **Tim Penyusun**
 
