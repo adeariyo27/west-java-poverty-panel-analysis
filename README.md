@@ -35,17 +35,17 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 </div>
 <br>
 <div align="center">
-  <table>
-  <tr>
-    <td valign="top">
+  <table style="border: none; border-collapse: collapse;">
+  <tr style="border: none;">
+    <td style="border: none;" valign="top">
       <h4>🔢 <em>Variabel Prediktor (X)</em></h4>
       <ul>
         <li>Tingkat Pengangguran Terbuka (TPT)</li>
         <li>Rata-Rata Lama Sekolah (RLS)</li>
       </ul>
     </td>
-    <td width="50px">&nbsp;</td>
-    <td valign="top">
+    <td style="border: none;" width="50px">&nbsp;</td>
+    <td style="border: none;" valign="top">
       <h4>📈 <em>Variabel Target (Y)</em></h4>
       <ul>
         <li>Persentase Penduduk Miskin (PPM)</li>
@@ -85,6 +85,26 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   <br>
   <em>Gambar 1. Cuplikan Data</em>
 </p>
+<br>
+
+<div align="center">
+| No  | Wilayah       | Tahun |   TPT |   RLS |   PPM |
+|---- |---------------|------:|------:|------:|------:|
+|  1  | Bandung       |  2024 |  6.36 |  9.15 |  6.19 |
+|  2  | Bandung       |  2023 |  6.52 |  9.10 |  6.40 |
+|  3  | Bandung       |  2022 |  6.98 |  9.08 |  6.80 |
+|  4  | Bandung       |  2021 |  8.32 |  9.07 |  7.15 |
+|  5  | Bandung Barat |  2024 |  6.70 |  8.24 | 10.50 |
+|  6  | Bandung Barat |  2023 |  8.11 |  8.23 | 10.52 |
+| ... | ............. |  .... |  .... |  .... | ..... |
+| 103 | Sumedang      |  2022 |  7.72 |  8.72 | 10.14 |
+| 104 | Sumedang      |  2021 |  9.18 |  8.52 | 10.71 |
+| 105 | Tasikmalaya   |  2024 |  3.74 |  7.97 | 10.23 |
+| 106 | Tasikmalaya   |  2023 |  3.89 |  7.96 | 10.28 |
+| 107 | Tasikmalaya   |  2022 |  4.17 |  7.73 | 10.73 |
+| 108 | Tasikmalaya   |  2021 |  6.16 |  7.48 | 11.15 |
+</div>
+
 
   
 #### **2. 🔍 Analisis Data Eksplorasi (EDA)**
