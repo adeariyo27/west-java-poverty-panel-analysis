@@ -330,8 +330,7 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
   | F test (Individual Effects) | F         | 26  | 79  | 168.53   | < 0.00000000000000022 |
   | LM Test (Breusch-Pagan)     | Chi-sq    | 1   | -   | 152.53   | < 0.00000000000000022 |
   | Hausman Test                | Chi-sq    | 2   | -   | 1.0169   | 0.6014               |
-      (Hasil dari uji ini mengarahkan pada pemilihan *Random Effect* Model (REM)).
-      
+  
 
 <div style="margin-left: 70px;">
 <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
@@ -475,7 +474,7 @@ Saat dianalisis secara individual, kedua variabel independen ditemukan memiliki 
 </div>
 
 <div align="center">
-  <img src="assets/images/Gambar 6 - Perbandingan Pola Pergerakan Variabel (Z-Score).png" alt="Z-Score" width="600">
+  <img src="assets/images/Gambar 6 - Perbandingan Pola Pergerakan Variabel (Z-Score).png" alt="Z-Score" width="500">
 <br>
   <em>Gambar 6. Perbandingan Pola Pergerakan Variabel (Z-Score)</em>
 </div>
