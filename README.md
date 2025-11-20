@@ -10,8 +10,6 @@ Proyek ini merupakan analisis data panel (2021-2024) untuk menguji dampak pengan
 ### 📖 **Latar Belakang**
 
 ---
-Tambahanbalabaalasdasdasdasd
-
 Jawa Barat menghadirkan suatu anomali. sebagai lumbung industri dan populasi terbesar, **kemiskinan** tetap menjadi **masalah kronis**. Kebijakan publik secara tradisional berfokus pada dua pilar untuk mengatasinya, yaitu menurunkan **Tingkat Pengangguran Terbuka (TPT)** dan **meningkatkan Rata-rata Lama Sekolah (RLS)**. Namun, efektivitas kedua pilar ini dipertanyakan. Fokus pada TPT berisiko mengabaikan fenomena pekerja miskin yang **memiliki pekerjaan** namun **upahnya tidak mencukupi**, sementara fokus pada RLS dihadapkan pada realitas ketidakcocokan struktural di mana **lulusan terdidik tidak selalu terserap oleh pasar kerja yang ada**.
 
 Proyek ini tidak bertujuan untuk membuktikan ulang teori, melainkan untuk menguji efektivitas kuantitatif dari kedua pilar kebijakan tersebut. Dengan menggunakan data panel 2021-2024 dari 27 kabupaten/kota di Jawa Barat, penelitian ini mencari jawaban yang lebih mendalam. Di antara ketersediaan lapangan kerja (TPT) dan kualitas modal manusia (RLS), **pengungkit manakah** yang secara statistik memiliki dampak **paling signifikan** dalam menurunkan **kemiskinan di Jawa Barat** pada periode pemulihan ekonomi saat ini?
@@ -19,7 +17,6 @@ Proyek ini tidak bertujuan untuk membuktikan ulang teori, melainkan untuk menguj
 ### 🎯 **Tujuan Proyek**
 
 ---
-
 Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 1. Menganalisis pengaruh **Tingkat Pengangguran Terbuka (TPT)** secara **parsial** terhadap **Persentase Penduduk Miskin (PPM)** di kabupaten/kota Jawa Barat.
@@ -30,7 +27,6 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 ### 📊 **Data & Variabel**
 
 ---
-
 <div align="center">
   <img src="assets/images/bps.png" width="150" align="center">
 </div>
@@ -59,7 +55,6 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 ### 📦 **Ruang Lingkup**
 
 ---
-
 1. **Cakupan**: Penelitian ini menggunakan **data panel tahunan** yang terdiri dari **27 Kabupaten/Kota di Provinsi Jawa Barat** (sebagai *unit cross-section*) selama periode waktu 2021-2024.
 
 2. **Fokus**: Berfokus pada pemodelan hubungan pengaruh secara langsung antara dua faktor utama (Tingkat Pengangguran Terbuka dan Rata-Rata Lama Sekolah) terhadap Persentase Penduduk Miskin. Analisis mencakup pemilihan model regresi data panel (FEM/REM), pengujian asumsi klasik, dan penerapan koreksi model (*Driscoll-Kraay Standard Errors*) untuk mengukur kekuatan dan arah hubungan.
@@ -73,7 +68,6 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 #### **1. 🧹 Persiapan Data (*Data Wrangling*)**
 
 ---
-
 - **Pengumpulan Data**: Mengumpulkan data sekunder data panel (tahunan 2021-2024) dari Badan Pusat Statistik (BPS) Jawa Barat.
 - **Cakupan Data**: Data mencakup 3 variabel (`PPM`, `TPT`, `RLS`) untuk 27 Kabupaten/Kota di Jawa Barat dengan rentang waktu 2021 s.d. 2024 (`N=27`, `T=4`, `Total Observasi=108`).
 - **Pembersihan & Konsistensi**:
@@ -210,7 +204,6 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 #### **2. 🔍 Analisis Data Eksplorasi (EDA)**
 
 ---
-
 - **Statistik Deskriptif**: Menggunakan `describeBy()` untuk memahami karakteristik, sebaran (mean, median), dan disparitas data, baik dikelompokkan berdasarkan `Wilayah` (antar kab/kota) maupun `Tahun`.
 
 - **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
@@ -265,134 +258,57 @@ dimana i = 1, 2, …, N dan t = 1, 2, …, T dengan i unit lintas individu, t un
   
   1. Model Gabungan (<em>Common Effect Model</em>)
   
-  Model gabungan merupakan salah satu model dalam analisis data panel yang tidak memperhatikan pengaruh individu dan waktu. Model ini mengasumsikan koefisien regresi (<em>intercept</em> ataupun <em>slope</em>) yang sama untuk semua individu dan waktu, dengan kata lain bentuk model sama seperti model regresi linier.
-  Model ini tidak memperhatikan dimensi individu maupun waktu, diasumsikan bahwa perilaku data antar individu sama dalam berbagai periode waktu. Bentuk persamaan model gabungan sebagai berikut:
+  Model gabungan adalah model yang menyamakan seluruh koefisien untuk semua individu dan waktu, sehingga bersifat seperti regresi linier biasa tanpa mempertimbangkan pengaruh individu maupun waktu. Bentuk persamaan model gabungan sebagai berikut:
   <p align="center">
   <img src="assets/images/Common-Effect-Model.png" width="200">
 </p>
   
- Pendugaan parameter model gabungan dilakukan dengan menggunakan Metode Kuadrat Terkecil (<em>Ordinary Least Square</em>). Asumsi yang terdapat pada model ini yaitu sisaan menyebar Normal (0,σu^2) bebas stokastik identik.
- 
   2. Model Pengaruh Tetap (<em>Fixed Effect Model</em>)
   
-  Model pengaruh tetap merupakan model yang dapat menunjukkan perbedaan tetap antar individu. Model ini mengasumsikan bahwa persamaan regresi memiliki <em>slope</em> konstan, sedangkan konstanta bervariasi antar individu. Secara umum pendugaan parameter model pengaruh tetap dilakukan dengan metode <em>Least Square Dummy Variabel</em> (LSDV), dimana LSDV merupakan suatu metode yang digunakan dalam pendugaan parameter regresi pada model yang melibatkan peubah dummy sebagai salah satu peubah bebasnya. Pada model pengaruh tetap, peubah dummy yang dibentuk adalah sebanyak N−1. Bentuk persamaan model pengaruh tetap sebagai berikut:
+  Model pengaruh tetap adalah model dengan <em>slope</em> konstan dan <em>intercept</em> berbeda antar individu, yang diduga menggunakan metode <em>Least Square Dummy Variabel</em> (LSDV) dengan membentuk N−1 peubah dummy.. Bentuk persamaan model pengaruh tetap sebagai berikut:
   <p align="center">
   <img src="assets/images/Fixed-Effect-Model.png" width="350">
 </p>
-
-  Dengan D2 = 1 untuk individu ke-2 dan 0 selainnya, D3 = 1 untuk individu ke-3 dan 0 selainnya, dan seterusnya untuk setiap individu ke-𝑖 (i = 2, 3, …, N). α1 nilai pengaruh spesifik individu ke-1 dan αi nilai pengaruh spesifik individu lainnya yang diperoleh dengan penambahan α1 dengan konstanta peubah dummy (Ci) ke-𝑖.  Adapun asumsi yang terdapat pada model ini yaitu sisaan menyebar Normal (0,σu^2) bebas stokastik identik.
   
   3. Model Pengaruh Acak (<em>Random Effect Model</em>)
   
-  Model Pengaruh Acak atau disebut juga <em>error component model</em> memiliki asumsi pengaruh individu merupakan peubah acak yang dimasukkan dalam model sebagai bentuk sisaan. Model ini tidak lagi menggunakan peubah dummy seperti pada model pengaruh tetap, melainkan menggunakan sisaan yang diduga memiliki hubungan antar individu. Pendugaan parameter OLS akan menghasilkan penduga yang bias dan tidak efisien, sehingga penggunaan metode <em>Generalized Least Square</em> (GLS) dilakukan untuk pendugaan pada model pengaruh acak. Bentuk persamaan model pengaruh acak sebagai berikut:
+ Model pengaruh acak adalah model yang memandang efek individu sebagai komponen acak dalam sisaan, tidak menggunakan dummy seperti Fixed Effect, dan diduga dengan <em>Generalized Least Square</em> (GLS) karena OLS menjadi bias dan tidak efisien. Bentuk persamaan model pengaruh acak sebagai berikut:
   <p align="center">
   <img src="assets/images/Random-Effect-Model.png" width="250">
 </p>
-
-  Dengan εi pengaruh faktor individu yang tidak terobservasi, vit merupakan komponen sisaan untuk individu ke-i dan waktu ke-𝑡. Adapun asumsi yang terdapat pada model ini yaitu:
-  
-  a. εi menyebar Normal (0,σu^2) bebas identik stokastik
-  
-  b. vit menyebar Normal (0,σu^2) bebas identik stokastik
-  
-  c. xit saling bebas dengan εi dan vit untuk setiap i dan t (E(Xit,εi)=0) dan (E(Xit,vit)=0).
 
 **C. Uji Pemilihan Model Regresi Data Panel**
 
 Uji pemilihan model pada regresi data panel perlu dilakukan untuk menentukan model mana yang paling tepat digunakan, apakah <em>common effect model</em>, <em>fixed effect model</em>, atau <em>random effect model</em>. Berikut ini merupakan rangkaian uji pemilihan model yang dilakukan.
 
-  1. Uji Chow
-  
-  Uji Chow merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. Uji ini menguji signifikansi konstanta αi apakah berbeda-beda pada masing-masing individu seperti pada **model pengaruh tetap** ataukah tidak berbeda seperti pada **model gabungan**. Hipotesis yang diuji sebagai berikut: 
- <p align="center">
-  <img src="assets/images/Hipotesis-Uji-Chow.png" width="500">
-</p>
-  
-  Statistik yang digunakan sebagai berikut:
-  <p align="center">
-  <img src="assets/images/Statistik-Uji-Chow.png" width="400">
-</p>
-  
-  Dimana N banyak individu, T adalah banyak periode waktu, dan K banyaknya peubah bebas. JKG model gabungan merupakan jumlah kuadrat sisaan pada model gabungan dan JKG model pengaruh tetap merupakan jumlah kuadrat sisaan pada model pengaruh tetap.
+  1. **Uji Chow** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. 
 
-  Keputusan: **Tolak** H0 jika **F (hit) > F (N-1,NT-N-K)** atau jika nilai <em>p-value</em> lebih kecil dari taraf nyata 5%.
-  
-  2. Uji Hausman
-  
-  Uji Hausman merupakan pengujian hipotesis antara **model pengaruh acak** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. Hipotesis yang diuji sebagai berikut:
-  <p align="center">
-  <img src="assets/images/Hipotesis-Uji-Hausman.png" width="500">
-</p>
-  
-  Statistik yang digunakan sebagai berikut:
-  <p align="center">
-  <img src="assets/images/Statistik-Uji-Hausman.png" width="400">
-</p>
-  
-  β MPA adalah vektor koefisien peubah bebas dari **model pengaruh acak** dan β MPT adalah vektor koefisien peubah bebas dari **model pengaruh tetap**.
+  2. **Uji Hausman** merupakan pengujian hipotesis antara **model pengaruh acak** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel.
+     
+  4. **Uji Lagrange Multipler** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier.
 
-  Keputusan: **Tolak** H0 jika **chi-square (hit) > chi-square (k,α)** dengan k banyaknya peubah bebas atau jika nilai <em>p-value</em> lebih kecil dari taraf nyata 5%.
-  
-  3. Uji Lagrange Multipler
-  
-  Uji Lagrange Multiplier merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier. Hipotesis yang diuji sebagai berikut:
-  <p align="center">
-  <img src="assets/images/Hipotesis-Uji-Lagrange.png" width="350">
-</p>
-
-  Statistik yang digunakan sebagai berikut:
-  <p align="center">
-  <img src="assets/images/Statistik-Uji-Lagrange.png" width="350">
-</p>
-
-  Dimana N banyak individu, T adalah banyak periode waktu, dan vit sisaan/error pada individu ke-i periode waktu ke-t pada model gabungan.
-
-  Keputusan: **Tolak** H0 jika **chi-square (hit) > chi-square (α,1)** atau jika nilai <em>p-value</em> lebih kecil dari taraf nyata 5%.
-  
 **D. Uji Signifikansi Parameter**
 
-1. Uji F (Uji Simultan)
-
-Uji F digunakan untuk mengetahui semua variabel independen secara bersama-sama mempunyai pengaruh terhadap variabel dependen. Dengan hipotesis:
-<p align="center">
-  <img src="assets/images/Uji-F.png" width="350">
-</p>
-
-Statistik Uji:
-<p align="center">
-  <img src="assets/images/Statistik-Uji-F.png" width="200">
-</p>
-
-Keputusan: **Tolak** H0 jika F (hit) > F (α;K-1,N-K), sehingga hubungan antara variable dependen dan variable independen berpengaruh signifikan.
-
-2. Uji t (Uji Parsial)
-
-Uji t digunakan untuk mengetahi pengaruh setiap variabel independen dan variabel dependen. Dengan hipotesis:
-<p align="center">
-  <img src="assets/images/Uji-t.png" width="200">
-</p>
-
-Statistik Uji:
-<p align="center">
-  <img src="assets/images/Statistik-Uji-t.png" width="200">
-</p>
-
-Keputusan: Tolak H0 jika t (hit) > t (tα/2;N-K), dengan n Adalah jumlah pengamatan dan k Adalah banyaknya parameter. Sehingga dapat disimpulkan bahwa variable independent signifikan terhadap variabel dependen.
-
-3. Koefisien Determinasi (R^2)
-
-R^2 merupakan cerminan seberapa besar variasi dari variabel dependen dapat dijelaskan oleh variabel independen. Ditentukan oleh R^2 yang mempunyai nilai di antara nol dan satu.
-
+1. **Uji F (Uji Simultan)** digunakan untuk mengetahui semua variabel independen secara bersama-sama mempunyai pengaruh terhadap variabel dependen.
+   
+3. **Uji t (Uji Parsial)** digunakan untuk mengetahui pengaruh setiap variabel independen dan variabel dependen.
+   
+5. Koefisien Determinasi (R^2) merupakan cerminan seberapa besar variasi dari variabel dependen dapat dijelaskan oleh variabel independen. Ditentukan oleh R^2 yang mempunyai nilai di antara nol dan satu.
 
 **E. Uji Asumsi Regresi Data Panel**
+Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan penting, seperti:
 
-Pengujian asumsi klasik merupakan pengujian yang harus dipenuhi dalam melakukan analisis menggunakan regresi data panel diantaranya asumsi residual berdistribusi normal, identik, dan independen. Dengan asumsi kenormalan, estimator OLS mempunyai sifat yang tidak bias, efisien, dan konsisten. Disamping itu, ditribusi probabilitas untuk estimator OLS dapat diperoleh dengan mudah, karena sifat distribusi normal setiap fungsi linier dari variabel yang berdistribusi normal dengan sendirinya didistribusikan secara normal. Uji asumsi klasik meliputi uji Normalitas, uji Multikoliearitas, dan uji Heterokedastisitas.
+1. Pengecekan normalitas,
 
+2. Pendeteksian multikolinearitas
+
+3. Pengujian heteroskedastisitas
+
+4. Pengujian autokorelasi
 
 #### **4. 🔧 Pemodelan Regresi Data Panel**
 
 ---
-
 - **Formulasi Model**: Memodelkan `PPM` (Y) sebagai fungsi dari `TPT` (X1) dan `RLS` (X2) menggunakan paket `plm` di R.
 
   - Model Utama: PPM ~ TPT + RLS
