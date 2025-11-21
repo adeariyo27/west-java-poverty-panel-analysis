@@ -11,7 +11,7 @@ Proyek ini merupakan analisis data panel (2021-2024) untuk menguji dampak pengan
 
 ---
 
-Jawa Barat menghadirkan suatu anomali. sebagai lumbung industri dan populasi terbesar, **kemiskinan** tetap menjadi **masalah kronis**. Kebijakan publik secara tradisional berfokus pada dua pilar untuk mengatasinya, yaitu menurunkan **Tingkat Pengangguran Terbuka (TPT)** dan **meningkatkan Rata-rata Lama Sekolah (RLS)**. Namun, efektivitas kedua pilar ini dipertanyakan. Fokus pada TPT berisiko mengabaikan fenomena pekerja miskin yang **memiliki pekerjaan** namun **upahnya tidak mencukupi**, sementara fokus pada RLS dihadapkan pada realitas ketidakcocokan struktural di mana **lulusan terdidik tidak selalu terserap oleh pasar kerja yang ada**.
+Jawa Barat menghadirkan suatu anomali. Sebagai lumbung industri dan populasi terbesar, **kemiskinan** tetap menjadi **masalah kronis**. Kebijakan publik secara tradisional berfokus pada dua pilar untuk mengatasinya, yaitu menurunkan **Tingkat Pengangguran Terbuka (TPT)** dan **meningkatkan Rata-rata Lama Sekolah (RLS)**. Namun, efektivitas kedua pilar ini dipertanyakan. Fokus pada TPT berisiko mengabaikan fenomena pekerja miskin yang **memiliki pekerjaan** namun **upahnya tidak mencukupi**, sementara fokus pada RLS dihadapkan pada realitas ketidakcocokan struktural di mana **lulusan terdidik tidak selalu terserap oleh pasar kerja yang ada**.
 
 Proyek ini tidak bertujuan untuk membuktikan ulang teori, melainkan untuk menguji efektivitas kuantitatif dari kedua pilar kebijakan tersebut. Dengan menggunakan data panel 2021-2024 dari 27 kabupaten/kota di Jawa Barat, penelitian ini mencari jawaban yang lebih mendalam. Di antara ketersediaan lapangan kerja (TPT) dan kualitas modal manusia (RLS), **pengungkit manakah** yang secara statistik memiliki dampak **paling signifikan** dalam menurunkan **kemiskinan di Jawa Barat** pada periode pemulihan ekonomi saat ini?
 
@@ -241,29 +241,8 @@ Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
 
 #### **2.1 Analisis Hubungan Antar Variabel**
 Analisis ini memvisualisasikan hubungan antara variabel dependen (PPM) dengan variabel independen (TPT dan RLS) untuk melihat korelasi awal.
-#### **A. Visualisasi Scatter Plot (Pola Hubungan)**
-<p align="center">
-  <img src="assets/images/Gambar 3.1 Scatter Plot RLS vs PPM.png">
-  <br>
-  <em>Gambar 2.3 Scatter Plot RLS vs PPM</em>
-</p>
-<br>
-<div style="margin-left: 40px;">
-    <p>
-      <p align="center">
-  <img src="assets/images/Gambar 3.1 Scatter Plot TPT vc PPM.png">
-  <br>
-  <em>Gambar 2.4 Scatter Plot TPT vc PPM</em>
-</p>
-<br>
-<div style="margin-left: 40px;">
-    <p>
 
-> 1.  **RLS vs PPM:** Terdapat hubungan **negatif**. Semakin tinggi rata-rata lama sekolah, tingkat kemiskinan cenderung semakin rendah.
-
-> 2.  **TPT vs PPM:** Hubungan terlihat lebih variatif, namun tetap menunjukkan pola tertentu yang perlu diuji lebih lanjut dalam model.
-
-#### **B. Matriks Korelasi Pearson**
+#### ** Matriks Korelasi Pearson**
 - **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
 <p align="center">
   <img src="assets/images/Gambar 3 - Heatmap Matriks Korelasi.png" alt="Heatmap Korelasi" width="400">
@@ -474,49 +453,7 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 
 - **Diagnostik**: Memvalidasi keandalan statistik model `REM` yang terpilih.
 
-  - **Multikolinearitas**: Menggunakan `vif()` pada model OLS Pooled (VIF < 10).
-    
-    | Variabel | Nilai    |
-    |----------|----------:|
-    | TPT      | 1.107534 |
-    | RLS      | 1.107534 |
-
-  - **Normalitas Residual**: Menggunakan `shapiro.test()` (p-value > 0.05).
-  
-    | Statistik   | Nilai    |
-    |---------- |----------:|
-    | W       | 0.9361 |
-    | p-value       | 0.00005941 |
-
-  - **Heteroskedastisitas**: Menggunakan `bptest()` (p-value > 0.05).
-    
-    | Statistik | Nilai     |
-    |-----------|-----------:|
-    | BP        | 0.52038   |
-    | df        | 2         |
-    | p-value   | 0.7709    |
-
-  - **Autokorelasi**: Menggunakan `pdwtest()` (Durbin-Watson panel) (p-value > 0.05).
-
-    | Statistik | Nilai    |
-    |----------|----------:|
-    | DW      | 1.518 |
-    | p-value      | 0.005124 |
-
-  - **Cross-Sectional Dependence (CSD)**: Menggunakan `pcdtest()` (Pesaran CD) (p-value > 0.05).
-  
-    | Statistik | Nilai    |
-    |----------|----------:|
-    | Z      | 5.7725 |
-    | p-value      | 0.000000007812 |
- 
-<div style="margin-left: 70px;">   
-<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
-<p>
-Berikut adalah interpretasi ringkas dari hasil uji asumsi klasik yang disajikan:
-</p>
-<ul>
-  <li style="margin-bottom: 10px;">
+<li style="margin-bottom: 10px;">
 <strong>Uji Multikolinearitas (VIF)</strong><br>
 Nilai VIF (Variance Inflation Factor) untuk kedua variabel independen (<code>TPT</code> dan <code>RLS</code>) tercatat sebesar <strong>1.107534</strong>. Karena nilai ini <strong>jauh di bawah ambang batas umum (5 atau 10)</strong>, dapat disimpulkan bahwa <strong>tidak terdeteksi adanya masalah multikolinearitas</strong> antar variabel independen dalam model.
   </li>
