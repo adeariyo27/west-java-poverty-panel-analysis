@@ -367,43 +367,17 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 - **Pemilihan Model**: Menjalankan serangkaian uji spesifikasi untuk memilih model terbaik:
 
   - **Uji Chow (pFtest)**: Memilih antara *Common Effect* vs *Fixed Effect*.
-  <div align="center">
-    <img src="assets/images/Gambar 5.1 - Uji Chow.png" alt="Uji Chow" width="400">
-  <br>
-    <em>Gambar 5.1. Hasil Uji Chow (pFtest)</em>
-  </div>
-  <br>  
+
+     Didapatkan nilai p-value dari Uji Chow sebesar 0.0000022 < 0.05 artinya tolak H0, sehingga model Common Effect dan data memiliki efek individual, sehingga Pooled OLS tidak sesuai.
   
   - **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
-  <div align="center">
-    <img src="assets/images/Gambar 5.2 - Uji Lagrange Multipliers.png" alt="Uji Lagrange   Multipliers" width="400">
-  <br>
-    <em>Gambar 5.2. Hasil Uji Lagrange Multipliers</em>
-  </div>
-  <br> 
-  
-  - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
-  <div align="center">
-    <img src="assets/images/Gambar 5.3 - Uji Hausman.png" alt="Uji Hausman" width="400">
-  <br>
-    <em>Gambar 5.3. Hasil Uji Hausman</em>
-  </div>
-  <br> 
-  
-    | Uji                         | Statistik | df1 | df2 | Nilai    | p-value              |
-  |------------------------------|-----------|-----|-----|----------|----------------------|
-  | F test (Individual Effects) | F         | 26  | 79  | 168.53   | < 0.00000000000000022 |
-  | LM Test (Breusch-Pagan)     | Chi-sq    | 1   | -   | 152.53   | < 0.00000000000000022 |
-  | Hausman Test                | Chi-sq    | 2   | -   | 1.0169   | 0.6014               |
-  
 
-<div style="margin-left: 70px;">
-<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
- <p>
-Berdasarkan hasil <code>Uji Chow</code> dan <code>Uji Lagrange Multiplier (Breusch-Pagan)</code>, nilai p-value yang <strong>sangat kecil</strong> (keduanya <strong>< 0.05</strong>) diperoleh. Oleh karena itu, <strong>H0 (yang menyatakan Common Effect Model/Pooled OLS adalah model yang tepat) ditolak</strong> pada kedua pengujian. Ini mengindikasikan bahwa terdapat <strong>efek individu yang signifikan</strong> dalam data, sehingga model <code>Pooled OLS</code> <strong>tidak cocok</strong> untuk digunakan.
-</p>
+    Didapatkan nilai p-value dari Uji Lagrange Multiplier sebesar 0.0000022 < 0.05 artinya tolak H0, sehingga model Common Effect ditolak, dan model dengan efek (Fixed Effect/Random Effect) lebih tepat digunakan.
+
+  - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
+
+    Didapatkan nilai p-value dari Uji Hausman sebesar 0.6014 > 0.05 artinya gagal tolak H0, sehingga Random Effect diterima sebagai model yang lebih konsisten dan efisien dibanding Fixed Effect.
 <p>
-Selanjutnya, <code>Uji Hausman</code> dilakukan untuk menentukan model yang paling tepat antara <code>Fixed Effect</code> dan <code>Random Effect</code>. Dari <code>Uji Hausman</code>, diperoleh nilai p-value sebesar <strong>0.6014</strong>. Karena nilai p-value ini (<strong>0.6014</strong>) jauh <strong>lebih besar dari 0.05</strong>, maka <strong>H0 (yang menyatakan Random Effect Model adalah model yang konsisten dan efisien) Gagal Ditolak</strong>. Dengan demikian, kesimpulan dari rangkaian uji ini adalah <strong>Random Effect Model (REM)</strong> merupakan <strong>model terbaik</strong> yang terpilih untuk analisis ini.
 </p>
 </blockquote>
 </div>
