@@ -236,18 +236,19 @@ Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
 <div style="margin-left: 40px;">
     <p>     
       
-> * **PPM (Kemiskinan):** Distribusi cenderung **bimodal** (memiliki dua puncak). Ini mengindikasikan adanya pengelompokan wilayah yang kontras: kelompok wilayah dengan kemiskinan rendah (umumnya Kota) dan kelompok dengan kemiskinan tinggi (umumnya Kabupaten).
-> * **TPT (Pengangguran):** Distribusi sedikit menceng ke kiri (*skewed*), menunjukkan mayoritas wilayah memiliki tingkat pengangguran di sekitar rata-rata, namun terdapat beberapa wilayah dengan angka ekstrem (outlier).
+> * **PPM (Kemiskinan): Distribusi menunjukkan pola **bimodal** (dua puncak). Hal ini mengindikasikan adanya segregasi karakteristik wilayah yang cukup tajam: kelompok wilayah dengan kemiskinan rendah (umumnya Kota) dan kelompok dengan kemiskinan tinggi (umumnya Kabupaten).
+> * **RLS (Pendidikan): Menunjukkan pola distribusi yang cenderung simetris **(mendekati normal)** dengan pusat data di sekitar 8-9 tahun. Ini menandakan akses pendidikan relatif lebih merata dibandingkan ekonomi, dengan mayoritas penduduk menamatkan jenjang SMP.
+> * **TPT (Pengangguran): Distribusi terlihat **menceng (skewed)** dengan adanya ekor distribusi yang memanjang. Hal ini menunjukkan bahwa meskipun rata-rata pengangguran terkendali, terdapat beberapa wilayah outlier yang memiliki tingkat pengangguran ekstrem tinggi yang perlu perhatian khusus.
 
 #### **2.1 Analisis Hubungan Antar Variabel**
 Analisis ini memvisualisasikan hubungan antara variabel dependen (PPM) dengan variabel independen (TPT dan RLS) untuk melihat korelasi awal.
 
-#### ** Matriks Korelasi Pearson**
+#### **Matriks Korelasi Pearson**
 - **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
 <p align="center">
   <img src="assets/images/Gambar 3 - Heatmap Matriks Korelasi.png" alt="Heatmap Korelasi" width="400">
   <br>
-  <em>Gambar 2.4 Heatmap Matriks Korelasi</em>
+  <em>Gambar 2.3 Heatmap Matriks Korelasi</em>
 </p>
 <br>
 <div style="margin-left: 40px;">
@@ -284,7 +285,7 @@ Bagian ini adalah **inti dari eksplorasi data panel**, bertujuan untuk memvalida
 <p align="center">
   <img src="assets/images/Gambar 4.1 Spaghetti Plot.png">
   <br>
-  <em>Gambar 2.5 Spaghetti Plot Tren Kemiskinan per Wilayah (2021-2024)</em>
+  <em>Gambar 2.4 Spaghetti Plot Tren Kemiskinan per Wilayah (2021-2024)</em>
 </p>
 <br>
 <div style="margin-left: 40px;">
@@ -296,7 +297,7 @@ Bagian ini adalah **inti dari eksplorasi data panel**, bertujuan untuk memvalida
 <p align="center">
   <img src="assets/images/Gambar 4.2 Boxplot.png">
   <br>
-  <em>Gambar 2.6 Boxplot Distribusi PPM berdasarkan Wilayah</em>
+  <em>Gambar 2.5 Boxplot Distribusi PPM berdasarkan Wilayah</em>
 </p>
 <br>
 <div style="margin-left: 40px;">
