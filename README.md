@@ -412,25 +412,25 @@ Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan, seperti
 
   - *Common Effect Model* (Pooled OLS)
   <div align="center">
-    <img src="assets/images/Gambar 4.1 - Summary Common Model.png" alt="Summary Common   Model" width="400">
+    <img src="assets/images/Gambar 4.1 - Persamaan Regresi Common Model.png" alt="Summary Common   Model" width="400">
   <br>
-    <em>Gambar 4.1. Summary Common Model</em>
+    <em>Gambar 4.1. Persamaan Regresi Common Model</em>
   </div>
   <br>
   
   - *Fixed Effect Model* (FEM)
   <div align="center">
-    <img src="assets/images/Gambar 4.2 - Summary Fixed Model.png" alt="Summary Fixed   Model" width="400">
+    <img src="assets/images/Gambar 4.2 - Persamaan Regresi Fixed Model.png" alt="Summary Fixed   Model" width="400">
   <br>
-    <em>Gambar 4.2. Summary Fixed Model</em>
+    <em>Gambar 4.2. Persamaan Regresi Fixed Model</em>
   </div>
   <br>
   
   - *Random Effect Model* (REM)
   <div align="center">
-    <img src="assets/images/Gambar 4.3 - Summary Random Model.png" alt="Summary Random   Model" width="400">
+    <img src="assets/images/Gambar 4.3 - Persamaan Regresi Random Model.png" alt="Summary Random   Model" width="400">
   <br>
-    <em>Gambar 4.3. Summary Random Model</em>
+    <em>Gambar 4.3. Persamaan Regresi Random Model</em>
   </div>
   <br> 
 
