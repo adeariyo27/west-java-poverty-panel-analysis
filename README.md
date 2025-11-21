@@ -452,9 +452,8 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 
 ---
 
-- **Diagnostik**: Memvalidasi keandalan statistik model `REM` yang terpilih.
-
-<li style="margin-bottom: 10px;">
+<ul>
+  <li style="margin-bottom: 10px;">
 <strong>Uji Multikolinearitas (VIF)</strong><br>
 Nilai VIF (Variance Inflation Factor) untuk kedua variabel independen (<code>TPT</code> dan <code>RLS</code>) tercatat sebesar <strong>1.107534</strong>. Karena nilai ini <strong>jauh di bawah ambang batas umum (5 atau 10)</strong>, dapat disimpulkan bahwa <strong>tidak terdeteksi adanya masalah multikolinearitas</strong> antar variabel independen dalam model.
   </li>
@@ -475,8 +474,6 @@ Dari hasil <code>pdwtest</code>, didapatkan p-value sebesar <strong>0.005124</st
 Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <strong>sangat kecil</strong> (<strong>0.000000007812</strong>), yang secara signifikan <strong>lebih rendah dari 0.05</strong>. Oleh karena itu, <strong><code>H0</code> (tidak ada cross-sectional dependence) ditolak</strong>. Ini mengindikasikan bahwa telah <strong>terdeteksi adanya masalah ketergantungan lintas-seksi (cross-sectional dependence)</strong> yang signifikan dalam data panel. Artinya, terdapat <strong>"efek tular" (spillover)</strong> atau korelasi antar galat (error) dari satu kabupaten/kota ke kabupaten/kota lainnya.
   </li>
 </ul>
-</blockquote>
-</div>
 
 #### **7. 🩺 Remediasi Model (Perbaikan Model)**  
 
