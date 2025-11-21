@@ -455,24 +455,34 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 <ul>
   <li style="margin-bottom: 10px;">
 <strong>Uji Multikolinearitas (VIF)</strong><br>
+  <br>
 Nilai VIF (Variance Inflation Factor) untuk kedua variabel independen (<code>TPT</code> dan <code>RLS</code>) tercatat sebesar <strong>1.107534</strong>. Karena nilai ini <strong>jauh di bawah ambang batas umum (5 atau 10)</strong>, dapat disimpulkan bahwa <strong>tidak terdeteksi adanya masalah multikolinearitas</strong> antar variabel independen dalam model.
   </li>
+  <br>
   <li style="margin-bottom: 10px;">
 <strong>Uji Normalitas (Shapiro-Wilk)</strong><br>
+  <br>
 Diperoleh nilai p-value sebesar <strong>0.00005941</strong>, yang jauh <strong>lebih kecil dari tingkat signifikansi 0.05</strong>. Oleh karena itu, <strong>H0 (residual terdistribusi normal) ditolak</strong>. Ini mengindikasikan bahwa <strong>asumsi normalitas residual telah dilanggar</strong>.
   </li>
+  <br>
   <li style="margin-bottom: 10px;">
 <strong>Uji Homokedastisitas (Breusch-Pagan)</strong><br>
+  <br>
 Nilai p-value yang dihasilkan adalah <strong>0.7709</strong>. Karena nilai ini secara signifikan <strong>lebih besar dari 0.05</strong>, maka <strong>H0 (terdapat homoskedastisitas atau varians error konstan) gagal ditolak</strong>. Dapat disimpulkan bahwa <strong>tidak ditemukan adanya masalah heteroskedastisitas</strong> dalam model.
   </li>
+  <br>
   <li style="margin-bottom: 10px;">
 <strong>Uji Autokorelasi (Durbin-Watson)</strong><br>
+  <br>
 Dari hasil <code>pdwtest</code>, didapatkan p-value sebesar <strong>0.005124</strong>, yang <strong>lebih kecil dari 0.05</strong>. Dengan demikian, <strong>H0 (tidak ada autokorelasi serial) ditolak</strong>. Ini menunjukkan bahwa telah <strong>terdeteksi adanya masalah autokorelasi serial</strong> dalam model.
   </li>
+  <br>
   <li style="margin-bottom: 10px;">
 <strong>Uji Cross-sectional Dependence (Pesaran CD)</strong><br>
+  <br>
 Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <strong>sangat kecil</strong> (<strong>0.000000007812</strong>), yang secara signifikan <strong>lebih rendah dari 0.05</strong>. Oleh karena itu, <strong><code>H0</code> (tidak ada cross-sectional dependence) ditolak</strong>. Ini mengindikasikan bahwa telah <strong>terdeteksi adanya masalah ketergantungan lintas-seksi (cross-sectional dependence)</strong> yang signifikan dalam data panel. Artinya, terdapat <strong>"efek tular" (spillover)</strong> atau korelasi antar galat (error) dari satu kabupaten/kota ke kabupaten/kota lainnya.
   </li>
+  <br>
 </ul>
 
 #### **7. 🩺 Remediasi Model (Perbaikan Model)**  
