@@ -25,13 +25,32 @@ view(df)
 # BAGIAN 1: ANALISIS DATA EKSPLORATIF (EDA)
 # -------------------------------------------------------------------
 
-# 1.1 Statistik Deskriptif
-print(describeBy(df$PPM, group = df$Wilayah))
-print(describeBy(df$PPM, group = df$Tahun))
+# Statistik Deskriptif Keseluruhan
+vars_numerik <- df %>% dplyr::select(PPM, TPT, RLS)
+print(psych::describe(vars_numerik), digits = 2)
 
-# 1.2 Matriks Korelasi
+# Visualisasi Distribusi Variabel
+data_long <- vars_numerik %>%
+  pivot_longer(cols = everything(), names_to = "Variabel", values_to = "Nilai")
+
+plot_distribusi <- ggplot(data_long, aes(x = Nilai, fill = Variabel)) +
+  geom_density(alpha = 0.7) +
+  geom_histogram(aes(y = ..density..), alpha = 0.2, bins = 15) +
+  facet_wrap(~ Variabel, scales = "free") +
+  theme_minimal() +
+  labs(
+    title = "Distribusi Variabel Dependen dan Independen",
+    subtitle = "Histogram dan Plot Densitas (2021-2024)",
+    x = "Nilai",
+    y = "Densitas"
+  ) +
+  theme(legend.position = "none")
+
+print(plot_distribusi)
+
+# 2.1 Heatmap Matriks Korelasi
 vars_for_cor <- df %>% 
-  select(PPM, TPT, RLS)
+  dplyr::select(PPM, TPT, RLS)
 cor_matrix <- cor(vars_for_cor, use = "complete.obs")
 print("Matriks Korelasi:")
 print(round(cor_matrix, 2))
@@ -49,6 +68,38 @@ plot_heatmap <- ggcorrplot(
 
 print(plot_heatmap)
 
+# 2.2.1 Spaghetti Plot (Tren Waktu 'Within-Group')
+plot_spaghetti <- ggplot(df, aes(x = Tahun, y = PPM, group = Wilayah, color = Wilayah)) +
+  geom_line(linewidth = 0.8, alpha = 0.7) +
+  geom_point(size = 1.5) +
+  theme_minimal() +
+  labs(
+    title = "Spaghetti Plot: Tren PPM per Wilayah (2021-2024)",
+    subtitle = "Setiap garis mewakili satu wilayah",
+    x = "Tahun",
+    y = "Persentase Penduduk Miskin (%)"
+  ) +
+  theme(legend.position = "none") + # Terlalu banyak legenda (27)
+  scale_x_continuous(breaks = seq(2021, 2024, by = 1))
+
+print(plot_spaghetti)
+
+# 2.2.2 Boxplot (Variasi Antar Wilayah 'Between-Group')
+plot_box_wilayah <- ggplot(df, aes(x = reorder(Wilayah, PPM, FUN = median), y = PPM, fill = Wilayah)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(
+    title = "Distribusi PPM per Wilayah (2021-2024)",
+    subtitle = "Diurutkan berdasarkan Median PPM",
+    x = "Wilayah",
+    y = "Persentase Penduduk Miskin (%)"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    legend.position = "none"
+  )
+
+print(plot_box_wilayah)
 
 
 # -------------------------------------------------------------------
@@ -82,7 +133,6 @@ summary(random)
 # -------------------------------------------------------------------
 # BAGIAN 3: PEMILIHAN MODEL (UJI SPESIFIKASI)
 # -------------------------------------------------------------------
-
 
 # 3.1 Uji Chow (Fixed vs Common)
 print("--- Uji Chow (Fixed vs Common) ---")
