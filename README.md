@@ -241,10 +241,9 @@ Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
 > * **TPT (Pengangguran): Distribusi terlihat **menceng (skewed)** dengan adanya ekor distribusi yang memanjang. Hal ini menunjukkan bahwa meskipun rata-rata pengangguran terkendali, terdapat beberapa wilayah outlier yang memiliki tingkat pengangguran ekstrem tinggi yang perlu perhatian khusus.
 
 #### **2.1 Analisis Hubungan Antar Variabel**
-Analisis ini memvisualisasikan hubungan antara variabel dependen (PPM) dengan variabel independen (TPT dan RLS) untuk melihat korelasi awal.
+Analisis ini menampilkan visualisasi hubungan antara variabel dependen (PPM) dengan variabel independen (TPT dan RLS) untuk melihat korelasi awal variabel. Analisis ini dilakukan dengan menggunakan uji korelasi pearson.
 
-#### **Matriks Korelasi Pearson**
-- **Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
+**Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
 <p align="center">
   <img src="assets/images/Gambar 3 - Heatmap Matriks Korelasi.png" alt="Heatmap Korelasi" width="400">
   <br>
@@ -279,7 +278,7 @@ Analisis ini memvisualisasikan hubungan antara variabel dependen (PPM) dengan va
   </blockquote>
 </div>
 
-#### **2.3 Struktur Data Panel (Heterogenitas)**
+#### **2.2 Struktur Data Panel (Heterogenitas)**
 Bagian ini adalah **inti dari eksplorasi data panel**, bertujuan untuk memvalidasi apakah terdapat karakteristik unik antar wilayah (*individual heterogeneity*) yang tidak bisa ditangkap oleh regresi biasa.
 #### **A. Tren Waktu (*Within-Group Variation*)**
 <p align="center">
@@ -317,7 +316,7 @@ Oleh karena itu, diperlukan metode **Regresi Data Panel** (seperti Fixed Effect 
 #### **3. 📚 Konsep Dasar Regresi Data Panel**
 
 ---
-**A. Pengertian Regresi Data Panel**
+**3.1 Pengertian Regresi Data Panel**
 
 Regresi data panel adalah metode analisis regresi yang diterapkan pada data yang berstruktur panel, yaitu data yang menggabungkan karakteristik data deret waktu (<em>time series</em>) dan data silang (<em>cross section</em>). Secara umum, bentuk persamaan regresi data panel sebagai berikut:
 <p align="center">
@@ -326,59 +325,58 @@ Regresi data panel adalah metode analisis regresi yang diterapkan pada data yang
 
 dimana i = 1, 2, …, N dan t = 1, 2, …, T dengan i unit lintas individu, t unit deret waktu, α koefisien konstanta, β vektor berukuran k × 1 dengan k menyatakan banyaknya peubah bebas. yit peubah respon untuk individu ke-i periode waktu ke-t, Xit individu ke-i periode waktu ke-t pada peubah bebas ke-k, dan uit adalah sisaan/error pada individu ke-i periode waktu ke-t.
 
-**B. Metode Pendugaan Model Regresi Data Panel**
+**3.2 Metode Pendugaan Model Regresi Data Panel**
   
-  1. Model Gabungan (<em>Common Effect Model</em>)
+  - Model Gabungan (<em>Common Effect Model</em>)
   
   Model gabungan adalah model yang menyamakan seluruh koefisien untuk semua individu dan waktu, sehingga bersifat seperti regresi linier biasa tanpa mempertimbangkan pengaruh individu maupun waktu. Bentuk persamaan model gabungan sebagai berikut:
   <p align="center">
   <img src="assets/images/Common-Effect-Model.png" width="200">
 </p>
  
-  2. Model Pengaruh Tetap (<em>Fixed Effect Model</em>)
+- Model Pengaruh Tetap (<em>Fixed Effect Model</em>)
   
  Model pengaruh tetap adalah model dengan slope konstan dan intercept berbeda antar individu, yang diduga menggunakan metode LSDV dengan membentuk N−1 peubah dummy. Bentuk persamaan model pengaruh tetap sebagai berikut:
   <p align="center">
   <img src="assets/images/Fixed-Effect-Model.png" width="350">
 </p>
   
-  3. Model Pengaruh Acak (<em>Random Effect Model</em>)
+  - Model Pengaruh Acak (<em>Random Effect Model</em>)
   
  Model pengaruh acak adalah model panel yang memandang efek individu sebagai komponen acak dalam sisaan, tidak menggunakan dummy seperti Ficed Effect, dan diduga dengan GLS karena OLS menjadi bias dan tidak efisien. Bentuk persamaan model pengaruh acak sebagai berikut:
   <p align="center">
   <img src="assets/images/Random-Effect-Model.png" width="250">
 </p>
 
-**C. Uji Pemilihan Model Regresi Data Panel**
+**3.3 Uji Pemilihan Model Regresi Data Panel**
 
 Uji pemilihan model pada regresi data panel perlu dilakukan untuk menentukan model mana yang paling tepat digunakan, apakah <em>common effect model</em>, <em>fixed effect model</em>, atau <em>random effect model</em>. Berikut ini merupakan rangkaian uji pemilihan model yang dilakukan.
 
-  1. **Uji Chow** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. 
+  - **Uji Chow** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. 
 
-  2. **Uji Hausman** merupakan pengujian hipotesis antara **model pengaruh acak** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. 
+  - **Uji Hausman** merupakan pengujian hipotesis antara **model pengaruh acak** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. 
 
-  3. **Uji Lagrange Multipler** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier.
+  - **Uji Lagrange Multipler** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier.
      
-**D. Uji Signifikansi Parameter**
+**3.4 Uji Signifikansi Parameter**
 
-1. **Uji F (Uji Simultan)** digunakan untuk mengetahui semua variabel independen secara bersama-sama mempunyai pengaruh terhadap variabel dependen. 
+Uji signifikansi parameter dilakukan untuk memastikan apakah variabel independen berpengaruh terhadap variabel dependen, melalui beberapa pengujian berikut ini:
 
-2. **Uji t (Uji Parsial)** digunakan untuk mengetahui pengaruh setiap variabel independen dan variabel dependen. 
+- **Uji F (Uji Simultan)** digunakan untuk mengetahui semua variabel independen secara bersama-sama mempunyai pengaruh terhadap variabel dependen. 
 
-3. **Koefisien Determinasi (R^2)** merupakan cerminan seberapa besar variasi dari variabel dependen dapat dijelaskan oleh variabel independen. Ditentukan oleh R^2 yang mempunyai nilai di antara nol dan satu.
+- **Uji t (Uji Parsial)** digunakan untuk mengetahui pengaruh setiap variabel independen dan variabel dependen. 
+
+- **Koefisien Determinasi (R^2)** merupakan cerminan seberapa besar variasi dari variabel dependen dapat dijelaskan oleh variabel independen. Ditentukan oleh R^2 yang mempunyai nilai di antara nol dan satu.
 
 
-**E. Uji Asumsi Regresi Data Panel**
+**3.5 Uji Asumsi Regresi Data Panel**
 
 Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan, seperti:
 
-1. Pengecekan normalitas
-
-2. Pendeteksian multikolinearitas
-
-3. Pengujian heteroskedastisitas
-
-4. Pengujian autokorelasi.
+- Pengecekan Normalitas
+- Pendeteksian Multikolinearitas
+- Pengujian Heteroskedastisitas
+- Pengujian Autokorelasi.
 
 #### **4. 🔧 Pemodelan Regresi Data Panel**
 
@@ -430,17 +428,13 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 
 ---
 
-- **Pemilihan Model**: Menjalankan serangkaian uji spesifikasi untuk memilih model terbaik:
+**Pemilihan Model**: Menjalankan serangkaian uji spesifikasi untuk memilih model terbaik:
 
-  - **Uji Chow (pFtest)**: Memilih antara *Common Effect* vs *Fixed Effect*.
+- **Uji Chow (pFtest)**: Memilih antara *Common Effect* vs *Fixed Effect*.
 
      Didapatkan nilai p-value dari Uji Chow sebesar 0.0000022 < 0.05 artinya tolak H0, sehingga model Common Effect dan data memiliki efek individual, sehingga Pooled OLS tidak sesuai.
-  
-  - **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
 
-    Didapatkan nilai p-value dari Uji Lagrange Multiplier sebesar 0.0000022 < 0.05 artinya tolak H0, sehingga model Common Effect ditolak, dan model dengan efek (Fixed Effect/Random Effect) lebih tepat digunakan.
-
-  - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
+- **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
 
     Didapatkan nilai p-value dari Uji Hausman sebesar 0.6014 > 0.05 artinya gagal tolak H0, sehingga Random Effect diterima sebagai model yang lebih konsisten dan efisien dibanding Fixed Effect.
 <p>
@@ -448,7 +442,31 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 </blockquote>
 </div>
 
-#### **6. 📐 Validasi Model & Uji Asumsi Klasik** 
+- **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
+
+    Didapatkan nilai p-value dari Uji Hausman sebesar 0.6014 > 0.05 artinya gagal tolak H0, sehingga Random Effect diterima sebagai model yang lebih konsisten dan efisien dibanding Fixed Effect.
+<p>
+</p>
+</blockquote>
+</div>
+  
+#### **6. 🧩 Uji Signifikansi Parameter**
+
+---
+- **Uji F (Uji Simultan)**
+
+  Didapatkan nilai p-value dari Uji F sebesar (<code>< 0.000...222</code>) < 0.05 artinya seluruh variabel independen (TPT dan RLS) secara bersama-sama berpengaruh signifikan terhadap variabel dependen (PPM).
+
+- **Uji t (Uji Parsial)**
+  **Variabel TPT**: didapatkan nilai p-value sebesar (<code><8.012e-11</code>) < 0.05 artinya variabel TPT berpengaruh positif dan signifikan terhadap variabel PPM.
+
+  **Variabel RLS**: didapatkan nilai p-value sebesar (<code>< 4.618e-12</code>) < 0.05 artinya variabel RLS berpengaruh positif dan signifikan terhadap variabel PPM.
+
+- **Uji t (Uji Parsial)**
+
+  Didapatkan nilai Adjusted R-Squared sebesar (<code><0.6122</code>) atau 61.22% yang berarti sebesar 61.22% PMM dapat dijelaskan oleh TPT dan RLS. Dan sebesar 38.78% sebagai sisanya dijelaskan oleh faktor lain diluar model.
+
+#### **7. 📐 Validasi Model & Uji Asumsi Klasik** 
 
 ---
 
@@ -485,7 +503,7 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
   <br>
 </ul>
 
-#### **7. 🩺 Remediasi Model (Perbaikan Model)**  
+#### **8. 🩺 Remediasi Model (Perbaikan Model)**  
 
 ---
 
@@ -520,7 +538,7 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
 
 - **Penerapan**: Menghitung ulang *Standard Error* dan p-value model REM dengan memanggil `summary(random, vcov = vcovSCC(random))`. Metode ini menghasilkan estimasi koefisien yang *robust* (kebal) terhadap autokorelasi dan CSD.
 
-#### **8. 💡 Interpretasi Model**
+#### **9. 💡 Interpretasi Model**
 
 ---
 
