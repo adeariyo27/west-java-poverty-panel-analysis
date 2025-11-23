@@ -206,13 +206,12 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 </div>
 
-#### **2. 🔍 Analisis Data Eksplorasi (EDA)**
+#### **2. 🔍 Analisis Data Eksploratif (EDA)**
 
 ---
-Tahap ini bertujuan untuk memahami karakteristik data, mengidentifikasi pola distribusi, serta mendeteksi struktur data panel (variasi antar-waktu dan antar-wilayah) sebelum dilakukan estimasi model regresi.
+Tahap ini bertujuan untuk memahami karakteristik data, mengidentifikasi pola distribusi, serta mendeteksi **struktur data panel** (variasi antar-waktu dan antar-wilayah) sebelum dilakukan estimasi model regresi.
 
-Langkah awal melibatkan pemeriksaan statistik deskriptif untuk melihat nilai rata-rata dan sebaran data secara keseluruhan (*n=108*).
-
+Langkah awal melibatkan pemeriksaan **statistik deskriptif** untuk melihat nilai rata-rata (*mean*) dan sebaran data secara keseluruhan ($N=108$).
 <p align="center">
   <img src="assets/images/Gambar 2.1 Statistik Deskriptif.png">
   <br>
@@ -222,8 +221,9 @@ Langkah awal melibatkan pemeriksaan statistik deskriptif untuk melihat nilai rat
 <div style="margin-left: 40px;">
     <p>
 
-> * **Kemiskinan (PPM):** Rata-rata PPM di Jawa Barat adalah **8.45%**.
-> * **Pendidikan (RLS):** Rata-rata lama sekolah adalah **8.81 tahun** (setara kelas 2-3 SMP).
+> Berdasarkan tabel di atas, diperoleh gambaran umum kondisi wilayah sebagai berikut:
+> * **Kemiskinan (PPM):** Rata-rata persentase penduduk miskin di Jawa Barat adalah **8.45%**.
+> * **Pendidikan (RLS):** Rata-rata lama sekolah berada di angka **8.81 tahun** (setara dengan kelas 2-3 SMP).
 > * **Pengangguran (TPT):** Rata-rata tingkat pengangguran terbuka sebesar **7.73%**.
 
 Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
@@ -235,15 +235,15 @@ Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
 <br>
 <div style="margin-left: 40px;">
     <p>     
-      
-> * **PPM (Kemiskinan): Distribusi menunjukkan pola **bimodal** (dua puncak). Hal ini mengindikasikan adanya segregasi karakteristik wilayah yang cukup tajam: kelompok wilayah dengan kemiskinan rendah (umumnya Kota) dan kelompok dengan kemiskinan tinggi (umumnya Kabupaten).
-> * **RLS (Pendidikan): Menunjukkan pola distribusi yang cenderung simetris **(mendekati normal)** dengan pusat data di sekitar 8-9 tahun. Ini menandakan akses pendidikan relatif lebih merata dibandingkan ekonomi, dengan mayoritas penduduk menamatkan jenjang SMP.
-> * **TPT (Pengangguran): Distribusi terlihat **menceng (skewed)** dengan adanya ekor distribusi yang memanjang. Hal ini menunjukkan bahwa meskipun rata-rata pengangguran terkendali, terdapat beberapa wilayah outlier yang memiliki tingkat pengangguran ekstrem tinggi yang perlu perhatian khusus.
+
+> * **PPM (Kemiskinan):** Distribusi menunjukkan pola **bimodal** (dua puncak). Hal ini mengindikasikan adanya pengelompokan wilayah yang kontras: kelompok wilayah dengan kemiskinan rendah (umumnya Kota) dan kelompok dengan kemiskinan tinggi (umumnya Kabupaten).
+> * **RLS (Pendidikan):** Menunjukkan pola distribusi yang cenderung **simetris (mendekati normal)** dengan pusat data di sekitar 8-9 tahun. Ini menandakan akses pendidikan relatif lebih merata, di mana mayoritas penduduk menamatkan jenjang SMP.
+> * **TPT (Pengangguran):** Distribusi terlihat **menceng (*skewed*)** dengan ekor distribusi memanjang ke kanan. Hal ini menunjukkan bahwa meskipun rata-rata pengangguran terkendali, terdapat beberapa wilayah *outlier* dengan tingkat pengangguran ekstrem yang perlu perhatian khusus.
 
 #### **2.1 Analisis Hubungan Antar Variabel**
-Analisis ini menampilkan visualisasi hubungan antara variabel dependen (PPM) dengan variabel independen (TPT dan RLS) untuk melihat korelasi awal variabel. Analisis ini dilakukan dengan menggunakan uji korelasi pearson.
+Analisis ini memvisualisasikan **Matriks Korelasi** (*Heatmap*) untuk memetakan pola hubungan linear antara variabel dependen (**PPM**) dan variabel independen (**TPT** dan **RLS**). 
 
-**Uji Korelasi Pearson**: Membuat matriks korelasi untuk mengukur kekuatan dan arah hubungan linear awal antar variabel, serta sebagai deteksi dini risiko multikolinearitas.
+Koefisien **Korelasi Pearson** digunakan untuk mengukur kekuatan dan arah hubungan tersebut secara kuantitatif, sekaligus sebagai langkah awal untuk mendeteksi potensi masalah **multikolinearitas** antar variabel independen.
 <p align="center">
   <img src="assets/images/Gambar 3 - Heatmap Matriks Korelasi.png" alt="Heatmap Korelasi" width="400">
   <br>
@@ -279,7 +279,7 @@ Analisis ini menampilkan visualisasi hubungan antara variabel dependen (PPM) den
 </div>
 
 #### **2.2 Struktur Data Panel (Heterogenitas)**
-Bagian ini adalah **inti dari eksplorasi data panel**, bertujuan untuk memvalidasi apakah terdapat karakteristik unik antar wilayah (*individual heterogeneity*) yang tidak bisa ditangkap oleh regresi biasa.
+Bagian ini merupakan **inti dari eksplorasi data panel**, bertujuan untuk memvalidasi apakah terdapat karakteristik unik antar wilayah (*individual heterogeneity*) yang tidak dapat ditangkap oleh metode regresi linear biasa.
 #### **A. Tren Waktu (*Within-Group Variation*)**
 <p align="center">
   <img src="assets/images/Gambar 4.1 Spaghetti Plot.png">
@@ -290,9 +290,9 @@ Bagian ini adalah **inti dari eksplorasi data panel**, bertujuan untuk memvalida
 <div style="margin-left: 40px;">
     <p>
 
-> Spaghetti plot menunjukkan bahwa hampir seluruh wilayah mengalami tren penurunan kemiskinan dari tahun 2021 ke 2024 (kemiringan garis menurun). Namun, garis-garis tersebut tidak berimpit, melainkan terpisah pada level (intercept) yang berbeda-beda. Ini menunjukkan bahwa meskipun tren waktunya seragam, setiap wilayah memulai dari "titik start" kemiskinan yang berbeda.
+> *Spaghetti plot* di atas menunjukkan bahwa hampir seluruh wilayah mengalami **tren penurunan kemiskinan** dari tahun 2021 ke 2024 (kemiringan garis menurun). Namun, garis-garis tersebut **tidak berimpit**, melainkan terpisah-pisah pada level (*intercept*) yang berbeda-beda. Ini menunjukkan bahwa meskipun tren waktunya seragam, setiap wilayah memulai dari "titik start" kemiskinan yang berbeda.
 
-#### B. Variasi Antar Wilayah (Between-Group Variation)
+#### **B. Variasi Antar Wilayah (*Between-Group Variation*)**
 <p align="center">
   <img src="assets/images/Gambar 4.2 Boxplot.png">
   <br>
@@ -302,16 +302,17 @@ Bagian ini adalah **inti dari eksplorasi data panel**, bertujuan untuk memvalida
 <div style="margin-left: 40px;">
     <p>
 
-> Boxplot di atas mengonfirmasi adanya **disparitas (ketimpangan) yang ekstrem** antar wilayah:
-
+> Boxplot di atas mengonfirmasi adanya **disparitas (ketimpangan) yang ekstrem** antar wilayah di Jawa Barat:
 > - **Klaster Rendah:** Kota Depok, Kota Bandung, dan Kota Bekasi konsisten memiliki tingkat kemiskinan sangat rendah (< 5%).
-
 > - **Klaster Tinggi:** Indramayu, Kuningan, dan Cirebon memiliki tingkat kemiskinan yang jauh lebih tinggi (> 12%).
 
-**Kesimpulan Eksplorasi**
-Adanya variasi antar-individu yang sangat besar (terlihat di Boxplot) dan perbedaan intercept yang konsisten (terlihat di Spaghetti Plot) memberikan justifikasi kuat bahwa metode **Regresi Linear Biasa (OLS) kemungkinan besar akan bias dan tidak efisien.**
+**Kesimpulan Eksplorasi:**
+Berdasarkan hasil visualisasi, teridentifikasi adanya **heterogenitas wilayah** yang sangat besar (terlihat di *Boxplot*) dan perbedaan *intercept* yang konsisten antar wilayah meskipun tren penurunannya seragam (terlihat di *Spaghetti Plot*).
 
-Oleh karena itu, diperlukan metode **Regresi Data Panel** (seperti Fixed Effect atau Random Effect) untuk menangkap efek heterogenitas wilayah tersebut secara akurat.
+Temuan ini memberikan justifikasi kuat bahwa metode **Regresi Linear Biasa (OLS) kemungkinan besar akan bias dan tidak efisien** karena gagal menangkap karakteristik unik tersebut.
+
+> **Keputusan Model:**
+> Oleh karena itu, diperlukan metode **Regresi Data Panel** (seperti *Fixed Effect* atau *Random Effect*) untuk menangkap efek heterogenitas wilayah tersebut secara akurat.
 
 #### **3. 📚 Konsep Dasar Regresi Data Panel**
 
