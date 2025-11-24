@@ -215,5 +215,17 @@ print(plot_tren +
 # -------------------------------------------------------------------
 # BAGIAN 6: INTERPRETASI MODEL
 # -------------------------------------------------------------------
-robust_summary <- summary(random, vcov = vcovSCC(random))
+robust_summary <- coeftest(random, vcov = vcovSCC(random, type = "HC0", maxlag = 2))
 print(robust_summary)
+# Interpretasi Koefisien
+cat("\n--- Interpretasi Koefisien Model Random Effect dengan Standard Error Robust ---\n")
+cat(sprintf("1. Koefisien TPT: %.4f\n", robust_summary["TPT", "Estimate"]))
+cat("   Artinya: Setiap kenaikan 1 persen poin tingkat pengangguran (TPT) di Jawa-Barat dikaitkan dengan\n")
+cat("   peningkatan sebesar ", sprintf("%.4f", robust_summary["TPT", "Estimate"]), " persen poin pada persentase penduduk miskin (PPM),\n")
+cat("   dengan asumsi variabel lain tetap konstan.\n\n")
+cat(sprintf("2. Koefisien RLS: %.4f\n", robust_summary["RLS", "Estimate"]))
+cat("   Artinya: Setiap kenaikan 1 persen poin rasio lama sekolah (RLS) di Jawa-Barat dikaitkan dengan\n")
+cat("   penurunan sebesar ", sprintf("%.4f", robust_summary["RLS", "Estimate"]), " persen poin pada persentase penduduk miskin (PPM),\n")
+cat("   dengan asumsi variabel lain tetap konstan.\n")
+# -------------------------------------------------------------------
+
