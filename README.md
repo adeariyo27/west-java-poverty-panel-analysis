@@ -357,7 +357,7 @@ Uji pemilihan model pada regresi data panel perlu dilakukan untuk menentukan mod
 
   - **Uji Hausman** merupakan pengujian hipotesis antara **model pengaruh acak** dan **model pengaruh tetap** untuk menentukan model yang tepat dalam mengestimasi data panel. 
 
-  - **Uji Lagrange Multipler** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier.
+  - **Uji Lagrange Multiplier** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier.
      
 **3.4 Uji Signifikansi Parameter**
 
@@ -374,10 +374,11 @@ Uji signifikansi parameter dilakukan untuk memastikan apakah variabel independen
 
 Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan, seperti:
 
-- Pengecekan Normalitas
 - Pendeteksian Multikolinearitas
+- Pengecekan Normalitas
 - Pengujian Heteroskedastisitas
-- Pengujian Autokorelasi.
+- Pengujian Autokorelasi
+- Pengujian Cross-sectional Dependence
 
 #### **4. 🔧 Pemodelan Regresi Data Panel**
 
