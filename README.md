@@ -1,13 +1,13 @@
 ![](assets/images/banner.png)
 
 
-### 📘 **Pendahuluan**
+## 📘 **Pendahuluan**
 
 ---
 
 Proyek ini merupakan analisis data panel (2021-2024) untuk menguji dampak pengangguran (TPT) dan pendidikan (RLS) terhadap tingkat kemiskinan di 27 kabupaten/kota di Jawa Barat.
 
-### 📖 **Latar Belakang**
+## 📖 **Latar Belakang**
 
 ---
 
@@ -15,7 +15,7 @@ Jawa Barat menghadirkan suatu anomali. Sebagai lumbung industri dan populasi ter
 
 Proyek ini tidak bertujuan untuk membuktikan ulang teori, melainkan untuk menguji efektivitas kuantitatif dari kedua pilar kebijakan tersebut. Dengan menggunakan data panel 2021-2024 dari 27 kabupaten/kota di Jawa Barat, penelitian ini mencari jawaban yang lebih mendalam. Di antara ketersediaan lapangan kerja (TPT) dan kualitas modal manusia (RLS), **pengungkit manakah** yang secara statistik memiliki dampak **paling signifikan** dalam menurunkan **kemiskinan di Jawa Barat** pada periode pemulihan ekonomi saat ini?
 
-### 🎯 **Tujuan Proyek**
+## 🎯 **Tujuan Proyek**
 
 ---
 
@@ -26,7 +26,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 3. Menganalisis pengaruh **TPT dan RLS** secara **simultan (bersama-sama)** terhadap **Persentase Penduduk Miskin (PPM)** di kabupaten/kota Jawa Barat.
 4. Mengidentifikasi faktor (**antara TPT dan RLS**) yang memiliki pengaruh **paling dominan** terhadap **Persentase Penduduk Miskin (PPM)** di Jawa Barat selama periode 2021-2024.
 
-### 📊 **Data & Variabel**
+## 📊 **Data & Variabel**
 
 ---
 
@@ -55,7 +55,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
   </table>
 </div>
 
-### 📦 **Ruang Lingkup**
+## 📦 **Ruang Lingkup**
 
 ---
 
@@ -65,11 +65,11 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 3. **Batasan**: Penelitian ini tidak mencakup faktor-faktor eksternal lain yang secara teoretis dapat memengaruhi kemiskinan (misalnya, inflasi, Gini Ratio, pertumbuhan PDRB, atau belanja bantuan sosial pemerintah) di luar dua variabel independen yang telah dipilih.
 
-### 🧭 **Metodologi**
+## 🧭 **Metodologi**
 
 ---
 
-#### **1. 🧹 Persiapan Data (*Data Wrangling*)**
+### **1. 🧹 Persiapan Data (*Data Wrangling*)**
 
 ---
 
@@ -206,7 +206,7 @@ Berdasarkan latar belakang tersebut, tujuan dari proyek ini adalah:
 
 </div>
 
-#### **2. 🔍 Analisis Data Eksploratif (EDA)**
+### **2. 🔍 Analisis Data Eksploratif (EDA)**
 
 ---
 Tahap ini bertujuan untuk memahami karakteristik data, mengidentifikasi pola distribusi, serta mendeteksi **struktur data panel** (variasi antar-waktu dan antar-wilayah) sebelum dilakukan estimasi model regresi.
@@ -221,10 +221,10 @@ Langkah awal melibatkan pemeriksaan **statistik deskriptif** untuk melihat nilai
 <div style="margin-left: 40px;">
     <p>
 
-> Berdasarkan tabel di atas, diperoleh gambaran umum kondisi wilayah sebagai berikut:
-> * **Kemiskinan (PPM):** Rata-rata persentase penduduk miskin di Jawa Barat adalah **8.45%**.
-> * **Pendidikan (RLS):** Rata-rata lama sekolah berada di angka **8.81 tahun** (setara dengan kelas 2-3 SMP).
-> * **Pengangguran (TPT):** Rata-rata tingkat pengangguran terbuka sebesar **7.73%**.
+Berdasarkan tabel di atas, diperoleh gambaran umum kondisi wilayah sebagai berikut:
+* **Kemiskinan (PPM):** Rata-rata persentase penduduk miskin di Jawa Barat adalah **8.45%**.
+* **Pendidikan (RLS):** Rata-rata lama sekolah berada di angka **8.81 tahun** (setara dengan kelas 2-3 SMP).
+* **Pengangguran (TPT):** Rata-rata tingkat pengangguran terbuka sebesar **7.73%**.
 
 Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
 <p align="center">
@@ -236,9 +236,9 @@ Untuk memahami bentuk data lebih dalam, dilakukan visualisasi distribusi:
 <div style="margin-left: 40px;">
     <p>     
 
-> * **PPM (Kemiskinan):** Distribusi menunjukkan pola **bimodal** (dua puncak). Hal ini mengindikasikan adanya pengelompokan wilayah yang kontras: kelompok wilayah dengan kemiskinan rendah (umumnya Kota) dan kelompok dengan kemiskinan tinggi (umumnya Kabupaten).
-> * **RLS (Pendidikan):** Menunjukkan pola distribusi yang cenderung **simetris (mendekati normal)** dengan pusat data di sekitar 8-9 tahun. Ini menandakan akses pendidikan relatif lebih merata, di mana mayoritas penduduk menamatkan jenjang SMP.
-> * **TPT (Pengangguran):** Distribusi terlihat **menceng (*skewed*)** dengan ekor distribusi memanjang ke kanan. Hal ini menunjukkan bahwa meskipun rata-rata pengangguran terkendali, terdapat beberapa wilayah *outlier* dengan tingkat pengangguran ekstrem yang perlu perhatian khusus.
+* **PPM (Kemiskinan):** Distribusi menunjukkan pola **bimodal** (dua puncak). Hal ini mengindikasikan adanya pengelompokan wilayah yang kontras: kelompok wilayah dengan kemiskinan rendah (umumnya Kota) dan kelompok dengan kemiskinan tinggi (umumnya Kabupaten).
+* **RLS (Pendidikan):** Menunjukkan pola distribusi yang cenderung **simetris (mendekati normal)** dengan pusat data di sekitar 8-9 tahun. Ini menandakan akses pendidikan relatif lebih merata, di mana mayoritas penduduk menamatkan jenjang SMP.
+* **TPT (Pengangguran):** Distribusi terlihat **menceng (*skewed*)** dengan ekor distribusi memanjang ke kanan. Hal ini menunjukkan bahwa meskipun rata-rata pengangguran terkendali, terdapat beberapa wilayah *outlier* dengan tingkat pengangguran ekstrem yang perlu perhatian khusus.
 
 #### **2.1 Analisis Hubungan Antar Variabel**
 Analisis ini memvisualisasikan **Matriks Korelasi** (*Heatmap*) untuk memetakan pola hubungan linear antara variabel dependen (**PPM**) dan variabel independen (**TPT** dan **RLS**). 
@@ -250,8 +250,6 @@ Koefisien **Korelasi Pearson** digunakan untuk mengukur kekuatan dan arah hubung
   <em>Gambar 2.3 Heatmap Matriks Korelasi</em>
 </p>
 <br>
-<div style="margin-left: 40px;">
-  <blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
     <p>
       Berdasarkan hasil dari heatmap matriks korelasi, teridentifikasi sebuah 
       <strong>korelasi negatif yang kuat</strong> antara 
@@ -275,8 +273,6 @@ Koefisien **Korelasi Pearson** digunakan untuk mengukur kekuatan dan arah hubung
       <strong>secara selektif menganggur</strong> sambil menunggu 
       <strong>pekerjaan yang layak</strong>.
     </p>
-  </blockquote>
-</div>
 
 #### **2.2 Struktur Data Panel (Heterogenitas)**
 Bagian ini merupakan **inti dari eksplorasi data panel**, bertujuan untuk memvalidasi apakah terdapat karakteristik unik antar wilayah (*individual heterogeneity*) yang tidak dapat ditangkap oleh metode regresi linear biasa.
@@ -290,7 +286,7 @@ Bagian ini merupakan **inti dari eksplorasi data panel**, bertujuan untuk memval
 <div style="margin-left: 40px;">
     <p>
 
-> *Spaghetti plot* di atas menunjukkan bahwa hampir seluruh wilayah mengalami **tren penurunan kemiskinan** dari tahun 2021 ke 2024 (kemiringan garis menurun). Namun, garis-garis tersebut **tidak berimpit**, melainkan terpisah-pisah pada level (*intercept*) yang berbeda-beda. Ini menunjukkan bahwa meskipun tren waktunya seragam, setiap wilayah memulai dari "titik start" kemiskinan yang berbeda.
+*Spaghetti plot* di atas menunjukkan bahwa hampir seluruh wilayah mengalami **tren penurunan kemiskinan** dari tahun 2021 ke 2024 (kemiringan garis menurun). Namun, garis-garis tersebut **tidak berimpit**, melainkan terpisah-pisah pada level (*intercept*) yang berbeda-beda. Ini menunjukkan bahwa meskipun tren waktunya seragam, setiap wilayah memulai dari "titik start" kemiskinan yang berbeda.
 
 #### **B. Variasi Antar Wilayah (*Between-Group Variation*)**
 <p align="center">
@@ -302,44 +298,50 @@ Bagian ini merupakan **inti dari eksplorasi data panel**, bertujuan untuk memval
 <div style="margin-left: 40px;">
     <p>
 
-> Boxplot di atas mengonfirmasi adanya **disparitas (ketimpangan) yang ekstrem** antar wilayah di Jawa Barat:
-> - **Klaster Rendah:** Kota Depok, Kota Bandung, dan Kota Bekasi konsisten memiliki tingkat kemiskinan sangat rendah (< 5%).
-> - **Klaster Tinggi:** Indramayu, Kuningan, dan Cirebon memiliki tingkat kemiskinan yang jauh lebih tinggi (> 12%).
+Boxplot di atas mengonfirmasi adanya **disparitas (ketimpangan) yang ekstrem** antar wilayah di Jawa Barat:
+- **Klaster Rendah:** Kota Depok, Kota Bandung, dan Kota Bekasi konsisten memiliki tingkat kemiskinan sangat rendah (< 5%).
+- **Klaster Tinggi:** Indramayu, Kuningan, dan Cirebon memiliki tingkat kemiskinan yang jauh lebih tinggi (> 12%).
 
 **Kesimpulan Eksplorasi:**
 Berdasarkan hasil visualisasi, teridentifikasi adanya **heterogenitas wilayah** yang sangat besar (terlihat di *Boxplot*) dan perbedaan *intercept* yang konsisten antar wilayah meskipun tren penurunannya seragam (terlihat di *Spaghetti Plot*).
 
 Temuan ini memberikan justifikasi kuat bahwa metode **Regresi Linear Biasa (OLS) kemungkinan besar akan bias dan tidak efisien** karena gagal menangkap karakteristik unik tersebut.
 
-> **Keputusan Model:**
-> Oleh karena itu, diperlukan metode **Regresi Data Panel** (seperti *Fixed Effect* atau *Random Effect*) untuk menangkap efek heterogenitas wilayah tersebut secara akurat.
+**Keputusan Model:**
+Oleh karena itu, diperlukan metode **Regresi Data Panel** (seperti *Fixed Effect* atau *Random Effect*) untuk menangkap efek heterogenitas wilayah tersebut secara akurat.
 
-#### **3. 📚 Konsep Dasar Regresi Data Panel**
+### **3. 📚 Konsep Dasar Regresi Data Panel**
 
 ---
-**3.1 Pengertian Regresi Data Panel**
+#### **3.1 Pengertian Regresi Data Panel**
 
 Regresi data panel adalah metode analisis regresi yang diterapkan pada data yang berstruktur panel, yaitu data yang menggabungkan karakteristik data deret waktu (<em>time series</em>) dan data silang (<em>cross section</em>). Secara umum, bentuk persamaan regresi data panel sebagai berikut:
 <p align="center">
   <img src="assets/images/Persamaan-Regresi-Data-Panel.png" width="350">
+  <br>
+  <em>Gambar 3.1 Bentuk Persamaan Regresi Data Panel</em>
 </p>
 
 dimana i = 1, 2, …, N dan t = 1, 2, …, T dengan i unit lintas individu, t unit deret waktu, α koefisien konstanta, β vektor berukuran k × 1 dengan k menyatakan banyaknya peubah bebas. yit peubah respon untuk individu ke-i periode waktu ke-t, Xit individu ke-i periode waktu ke-t pada peubah bebas ke-k, dan uit adalah sisaan/error pada individu ke-i periode waktu ke-t.
 
-**3.2 Metode Pendugaan Model Regresi Data Panel**
+#### **3.2 Metode Pendugaan Model Regresi Data Panel**
   
   - Model Gabungan (<em>Common Effect Model</em>)
   
   Model gabungan adalah model yang menyamakan seluruh koefisien untuk semua individu dan waktu, sehingga bersifat seperti regresi linier biasa tanpa mempertimbangkan pengaruh individu maupun waktu. Bentuk persamaan model gabungan sebagai berikut:
   <p align="center">
   <img src="assets/images/Common-Effect-Model.png" width="200">
-</p>
+  <br>
+  <em>Gambar 3.2 Bentuk Persamaan Model Gabungan</em>
+  </p>
  
 - Model Pengaruh Tetap (<em>Fixed Effect Model</em>)
   
  Model pengaruh tetap adalah model dengan slope konstan dan intercept berbeda antar individu, yang diduga menggunakan metode LSDV dengan membentuk N−1 peubah dummy. Bentuk persamaan model pengaruh tetap sebagai berikut:
   <p align="center">
   <img src="assets/images/Fixed-Effect-Model.png" width="350">
+  <br>
+  <em>Gambar 3.3 Bentuk Persamaan Model Pengaruh Tetap</em>
 </p>
   
   - Model Pengaruh Acak (<em>Random Effect Model</em>)
@@ -347,9 +349,11 @@ dimana i = 1, 2, …, N dan t = 1, 2, …, T dengan i unit lintas individu, t un
  Model pengaruh acak adalah model panel yang memandang efek individu sebagai komponen acak dalam sisaan, tidak menggunakan dummy seperti Ficed Effect, dan diduga dengan GLS karena OLS menjadi bias dan tidak efisien. Bentuk persamaan model pengaruh acak sebagai berikut:
   <p align="center">
   <img src="assets/images/Random-Effect-Model.png" width="250">
+  <br>
+  <em>Gambar 3.4 Bentuk Persamaan Model Pengaruh Acak</em>
 </p>
 
-**3.3 Uji Pemilihan Model Regresi Data Panel**
+#### **3.3 Uji Pemilihan Model Regresi Data Panel**
 
 Uji pemilihan model pada regresi data panel perlu dilakukan untuk menentukan model mana yang paling tepat digunakan, apakah <em>common effect model</em>, <em>fixed effect model</em>, atau <em>random effect model</em>. Berikut ini merupakan rangkaian uji pemilihan model yang dilakukan.
 
@@ -359,7 +363,7 @@ Uji pemilihan model pada regresi data panel perlu dilakukan untuk menentukan mod
 
   - **Uji Lagrange Multiplier** merupakan pengujian hipotesis antara **model gabungan** dan **model pengaruh acak** untuk menentukan model yang tepat dalam mengestimasi data panel. Dilakukannya uji lagrange multiplier karena pada uji chow terpilih model pengaruh tetap, namun pada uji hausman terpilih model pengaruh acak. Sehingga untuk memutuskan model yang akan digunakan maka dilakukan Uji Lagrange Multiplier.
      
-**3.4 Uji Signifikansi Parameter**
+#### **3.4 Uji Signifikansi Parameter**
 
 Uji signifikansi parameter dilakukan untuk memastikan apakah variabel independen berpengaruh terhadap variabel dependen, melalui beberapa pengujian berikut ini:
 
@@ -370,7 +374,7 @@ Uji signifikansi parameter dilakukan untuk memastikan apakah variabel independen
 - **Koefisien Determinasi (R^2)** merupakan cerminan seberapa besar variasi dari variabel dependen dapat dijelaskan oleh variabel independen. Ditentukan oleh R^2 yang mempunyai nilai di antara nol dan satu.
 
 
-**3.5 Uji Asumsi Regresi Data Panel**
+#### **3.5 Uji Asumsi Regresi Data Panel**
 
 Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan, seperti:
 
@@ -380,7 +384,7 @@ Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan, seperti
 - Pengujian Autokorelasi
 - Pengujian Cross-sectional Dependence
 
-#### **4. 🔧 Pemodelan Regresi Data Panel**
+### **4. 🔧 Pemodelan Regresi Data Panel**
 
 ---
 
@@ -414,19 +418,14 @@ Uji asumsi klasik pada regresi data panel mencakup beberapa pemeriksaan, seperti
   </div>
   <br> 
 
-
-<div style="margin-left: 70px;">
-<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
 Berdasarkan hasil estimasi, ketiga model (<code>Pooled OLS</code>, <code>Fixed Effect</code>, dan <code>Random Effect</code>) ditemukan <strong>signifikan secara keseluruhan</strong>, yang ditunjukkan oleh nilai p-value F-statistik atau Chisq yang <strong>sangat kecil</strong> (<code>< 0.000...222</code>). Model <code>Pooled OLS</code> (<strong>R-sq: 0.54</strong>) mengindikasikan bahwa <code>RLS</code> (Rata-Rata Lama Sekolah) memiliki pengaruh negatif dan sangat signifikan terhadap kemiskinan. Namun, dalam model ini, variabel <code>TPT</code> (Tingkat Pengangguran Terbuka) ditemukan <strong>tidak signifikan</strong> secara statistik (<strong>p-value = 0.4608</strong>).
 </p>
 <p>
 Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <code>Fixed Effect</code> (<strong>R-sq: 0.64</strong>) maupun model <code>Random Effect</code> (<strong>R-sq: 0.61</strong>), kedua variabel independen (<code>TPT</code> dan <code>RLS</code>) ditemukan memiliki pengaruh yang <strong>sangat signifikan</strong> terhadap kemiskinan. Sesuai dengan teori, koefisien <code>TPT</code> teridentifikasi <strong>positif (menaikkan kemiskinan)</strong> dan koefisien <code>RLS</code> teridentifikasi <strong>negatif (menurunkan kemiskinan)</strong> pada kedua model panel tersebut. Perbedaan signifikansi <code>TPT</code> antara model <code>Pooled OLS</code> dan model panel ini menegaskan <strong>pentingnya memperhitungkan efek individu</strong> (heterogenitas) antar wilayah.
 </p>
-</blockquote>
-</div>
   
-#### **5. 🧩 Pemilihan Model & Uji Spesifikasi**
+### **5. 🧩 Pemilihan Model & Uji Spesifikasi**
 
 ---
 
@@ -439,20 +438,13 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 - **Uji Hausman (phtest)**: Memilih antara *Fixed Effect* vs *Random Effect*.
 
     Didapatkan nilai p-value dari Uji Hausman sebesar 0.6014 > 0.05 artinya gagal tolak H0, sehingga Random Effect diterima sebagai model yang lebih konsisten dan efisien dibanding Fixed Effect.
-<p>
-</p>
-</blockquote>
-</div>
 
 - **Uji Lagrange Multiplier (plmtest)**: Memilih antara *Common Effect* vs *Random Effect*.
 
     Didapatkan nilai p-value dari Uji Hausman sebesar 0.6014 > 0.05 artinya gagal tolak H0, sehingga Random Effect diterima sebagai model yang lebih konsisten dan efisien dibanding Fixed Effect.
-<p>
-</p>
-</blockquote>
-</div>
+
   
-#### **6. 🧩 Uji Signifikansi Parameter**
+### **6. 🧩 Uji Signifikansi Parameter**
 
 ---
 - **Uji F (Uji Simultan)**
@@ -468,7 +460,7 @@ Sebaliknya, hasil yang berbeda ditunjukkan oleh kedua model panel. Dalam model <
 
   Didapatkan nilai Adjusted R-Squared sebesar (<code><0.6122</code>) atau 61.22% yang berarti sebesar 61.22% PMM dapat dijelaskan oleh TPT dan RLS. Dan sebesar 38.78% sebagai sisanya dijelaskan oleh faktor lain diluar model.
 
-#### **7. 📐 Validasi Model & Uji Asumsi Klasik** 
+### **7. 📐 Validasi Model & Uji Asumsi Klasik** 
 
 ---
 
@@ -505,14 +497,12 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
   <br>
 </ul>
 
-#### **8. 🩺 Remediasi Model (Perbaikan Model)**  
+### **8. 🩺 Remediasi Model (Perbaikan Model)**  
 
 ---
 
 - **Diagnosis**: Hasil dari Uji Asumsi (Langkah 5) menunjukkan adanya pelanggaran asumsi **Normalitas**, **Autokorelasi** dan **Cross-Sectional Dependence (CSD)** yang signifikan.
 
-<div style="margin-left: 40px;">
-<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
 <ul style="list-style-type: decimal; margin-left: 20px;">
   <li style="margin-bottom: 10px;">
@@ -525,22 +515,16 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
 <strong>Gagal Uji CSD (Pelanggaran Serius)</strong>: Ini adalah masalah terbesar. Gagalnya <strong>Uji Pesaran CD</strong> membuktikan adanya <strong>"efek tular" (<em>spillover</em>)</strong> antar kabupaten/kota, di mana kebijakan di <strong>Kota Bandung</strong> terbukti memengaruhi <strong>Kabupaten Bandung</strong>.
   </li>
 </ul>
-</blockquote>
-</div>
 
 - **Solusi**: Untuk mengatasi pelanggaran asumsi ganda tersebut, model `REM` standar tidak dapat digunakan. Solusi yang diterapkan adalah menggunakan **Driscoll-Kraay Standard Errors (SCC)**.
 
-<div style="margin-left: 40px;">
-<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
 <strong>Driscoll-Kraay (SCC)</strong> adalah salah satu jenis <strong>Robust Standard Error</strong> yang paling kuat, yang dirancang khusus untuk data panel makro seperti dalam <strong>studi kasus ini</strong>. Relevansinya sangat tinggi karena data 27 kabupaten/kota di Jawa Barat terbukti menderita "penyakit ganda" yang serius, yaitu <strong>Autokorelasi</strong> (efek kelembaman waktu) dan <strong>Cross-Sectional Dependence (CSD)</strong> (efek tular antar wilayah). Metode SCC ini bekerja dengan "mengobati" <em>Standard Error</em> dan <em>p-value</em> model agar tetap <strong>valid dan dapat dipercaya (<em>robust</em>)</strong>, bahkan ketika <strong>kedua pelanggaran asumsi yang parah</strong> tersebut terjadi secara bersamaan, tidak seperti metode <em>robust</em> standar yang hanya mengobati satu penyakit.
 </p>
-</blockquote>
-</div>
 
 - **Penerapan**: Menghitung ulang *Standard Error* dan p-value model REM dengan memanggil `summary(random, vcov = vcovSCC(random))`. Metode ini menghasilkan estimasi koefisien yang *robust* (kebal) terhadap autokorelasi dan CSD.
 
-#### **9. 💡 Interpretasi Model**
+### **9. 💡 Interpretasi Model**
 
 ---
 
@@ -552,25 +536,21 @@ Dari hasil <code>Uji Pesaran CD</code>, diperoleh <code>p-value</code> yang <str
 
   - **Coefficients (Estimate & Pr(>|z|))**: Variabel (`TPT` atau `RLS`) mana yang signifikan secara parsial dan bagaimana arah pengaruhnya (positif/negatif).
 
-<div style="margin-left: 70px;">  
-<blockquote style="font-size: 14px; color: rgba(0,0,0,0.95);">
 <p>
 Berdasarkan hasil <code>summary()</code> model <code>Random Effect</code> yang telah dikoreksi menggunakan <strong>Driscoll-Kraay (SCC) Standard Errors</strong>, model tersebut ditemukan <strong>sangat signifikan secara statistik</strong>. Penggunaan koreksi SCC ini, yang dicatat dalam <em>output</em> (<code>vcovSCC(random)</code>), telah menghasilkan <em>Standard Error</em> dan <code>p-value</code> yang <strong><em>robust</em></strong> terhadap masalah <strong>autokorelasi</strong> dan <strong>cross-sectional dependence</strong>. Kelayakan model secara keseluruhan dikonfirmasi oleh nilai <code>Chisq</code> (<strong>51719.7</strong>) dengan <code>p-value</code> yang <strong>sangat kecil</strong> (<strong>< 0.000...222</strong>), yang mengindikasikan bahwa model ini <strong>valid secara statistik</strong>. Selain itu, nilai <code>Adjusted R-Squared</code> sebesar <strong>0.61218</strong> menunjukkan bahwa sekitar <strong>61.9%</strong> variasi dari Persentase Penduduk Miskin (<code>PPM</code>) <strong>dapat dijelaskan</strong> oleh model ini.
 </p>
 <p>
 Saat dianalisis secara individual, kedua variabel independen ditemukan memiliki pengaruh yang <strong>sangat signifikan</strong>. Variabel <code>TPT</code> (Tingkat Pengangguran Terbuka) teridentifikasi memiliki <strong>koefisien positif</strong> (<strong>0.166834</strong>) dan <strong>sangat signifikan</strong> (<strong>< 0.000...1427</strong>), yang menunjukkan adanya <strong>hubungan positif dengan kemiskinan</strong>. Demikian pula, variabel <code>RLS</code> (Rata-Rata Lama Sekolah) ditemukan memiliki <strong>koefisien negatif</strong> (<strong>-1.364553</strong>) dan juga <strong>sangat signifikan</strong> (<strong>< 0.000...22</strong>), yang mengindikasikan bahwa <strong>kenaikan tingkat pendidikan</strong> sangat erat kaitannya dengan <strong>penurunan tingkat kemiskinan</strong>.
 </p>
-</blockquote>
-</div>
 
 <div align="center">
   <img src="assets/images/Gambar 6 - Perbandingan Pola Pergerakan Variabel (Z-Score).png" alt="Z-Score" width="500">
 <br>
-  <em>Gambar 6. Perbandingan Pola Pergerakan Variabel (Z-Score)</em>
+  <em>Gambar 5. Perbandingan Pola Pergerakan Variabel (Z-Score)</em>
 </div>
 <br>
 
-### 👥 **Tim Penyusun**
+## 👥 **Tim Penyusun**
 
 ---
 
