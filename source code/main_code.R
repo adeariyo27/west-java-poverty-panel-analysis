@@ -91,13 +91,13 @@ plot_box_wilayah <- ggplot(df, aes(x = reorder(Wilayah, PPM, FUN = median), y = 
   labs(
     title = "Distribusi PPM per Wilayah (2021-2024)",
     subtitle = "Diurutkan berdasarkan Median PPM",
-    x = "Wilayah",
-    y = "Persentase Penduduk Miskin (%)"
+    x = "Wilayah", 
+    y = "Persentase Penduduk Miskin (%)" 
   ) +
   theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     legend.position = "none"
-  )
+  ) +
+ coord_flip() 
 
 print(plot_box_wilayah)
 
