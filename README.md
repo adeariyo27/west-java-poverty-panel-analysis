@@ -290,7 +290,7 @@ Bagian ini merupakan **inti dari eksplorasi data panel**, bertujuan untuk memval
 
 #### **B. Variasi Antar Wilayah (*Between-Group Variation*)**
 <p align="center">
-  <img src="assets/images/Gambar 4.2 Boxplot.png">
+  <img src="assets/images/Gambar Boxplot.png">
   <br>
   <em>Gambar 2.5 Boxplot Distribusi PPM berdasarkan Wilayah</em>
 </p>
